@@ -1,4 +1,4 @@
-## 프로젝트 개요
+## De-Shorts 프로젝트 개요
 
 ### 개발 배경
 
@@ -33,5 +33,3 @@ AI는 등록 자료와 웹 검색 결과를 바탕으로 카드뉴스의 글과 
 | 배포 | Docker Compose, Nginx | 컨테이너 실행, 프런트 제공, API 전달 |
 | 네트워크 | Cloudflare Tunnel | 외부에서 서버로 접속 |
 | 개발 및 협업 도구 | Git, GitHub | 코드 버전 관리 및 FE·BE 저장소 관리 |
-
-## ERD
