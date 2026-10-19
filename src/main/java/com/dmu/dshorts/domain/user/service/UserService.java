@@ -1,47 +1,75 @@
 package com.dmu.dshorts.domain.user.service;
 
-import com.dmu.dshorts.domain.activity.entity.UserAction;
-import com.dmu.dshorts.domain.activity.repository.UserActionRepository;
-import com.dmu.dshorts.domain.persona.repository.PersonaRepository;
-import com.dmu.dshorts.domain.post.dto.PostSummaryResponse;
-import com.dmu.dshorts.domain.post.service.CatalogService;
+import com.dmu.dshorts.domain.activity.entity.UserInterest;
+import com.dmu.dshorts.domain.activity.repository.UserInterestRepository;
+import com.dmu.dshorts.domain.topic.entity.Topic;
 import com.dmu.dshorts.domain.topic.repository.TopicRepository;
-import com.dmu.dshorts.domain.user.entity.UserPreference;
-import com.dmu.dshorts.domain.user.repository.UserPreferenceRepository;
-import com.dmu.dshorts.global.common.PageResponse;
-import java.util.Map;
-import org.springframework.http.HttpStatus;
+import com.dmu.dshorts.domain.user.dto.MyProfileResponse;
+import com.dmu.dshorts.domain.user.dto.UpdateMeRequest;
+import com.dmu.dshorts.domain.user.entity.User;
+import com.dmu.dshorts.domain.user.repository.UserRepository;
+import com.dmu.dshorts.global.error.ApiException;
+import com.dmu.dshorts.global.visibility.VisibilityService;
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class UserService {
-    private final UserPreferenceRepository preferences;private final UserActionRepository actions;private final TopicRepository topics;private final PersonaRepository personas;private final CatalogService catalog;
-    public UserService(UserPreferenceRepository preferences,UserActionRepository actions,TopicRepository topics,PersonaRepository personas,CatalogService catalog){this.preferences=preferences;this.actions=actions;this.topics=topics;this.personas=personas;this.catalog=catalog;}
-    @Transactional public Map<String,Object> preferences(String user){
-        UserPreference p=preferences.findById(user).orElseGet(()->preferences.save(new UserPreference(user)));
-        var interestIds=actions.findByUserIdAndActionTypeOrderByCreatedAtDesc(user,"INTEREST").stream().map(UserAction::getTargetId).toList();
-        return Map.of("mode",p.getMode(),"interestTopicIds",interestIds,"updatedAt",p.getUpdatedAt().toString());
+
+    private final UserRepository userRepository;
+    private final UserInterestRepository userInterestRepository;
+    private final TopicRepository topicRepository;
+
+    public UserService(UserRepository userRepository, UserInterestRepository userInterestRepository,
+                       TopicRepository topicRepository) {
+        this.userRepository = userRepository;
+        this.userInterestRepository = userInterestRepository;
+        this.topicRepository = topicRepository;
     }
-    @Transactional public Map<String,String> updateMode(String user,String mode){
-        if(mode==null||!mode.matches("BASIC|INSTAGRAM|YOUTUBE"))throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"mode는 BASIC, INSTAGRAM, YOUTUBE 중 하나여야 합니다.");
-        UserPreference p=preferences.findById(user).orElseGet(()->new UserPreference(user));p.setMode(mode);preferences.save(p);return Map.of("mode",mode);
+
+    @Transactional(readOnly = true)
+    public MyProfileResponse getProfile(Long userId) {
+        return MyProfileResponse.of(loadUser(userId), interestTopicIds(userId));
     }
-    @Transactional public Map<String,String> interest(String user,String topicId,boolean add){
-        if(!topics.existsById(topicId))throw new ResponseStatusException(HttpStatus.NOT_FOUND,"주제를 찾을 수 없습니다.");
-        action(user,"INTEREST",topicId,add);return Map.of("topicId",topicId,"selected",Boolean.toString(add));
+
+    @Transactional
+    public MyProfileResponse updateProfile(Long userId, UpdateMeRequest request) {
+        User user = loadUser(userId);
+        if (request.username() != null && !request.username().equals(user.getUsername())) {
+            if (userRepository.existsByUsername(request.username())) {
+                throw ApiException.conflict("이미 사용 중인 아이디입니다.");
+            }
+            user.setUsername(request.username());
+        }
+        if (request.displayName() != null) {
+            String displayName = request.displayName().trim();
+            if (displayName.isEmpty()) {
+                throw ApiException.validation("displayName", "표시 이름은 1~50자여야 합니다.");
+            }
+            user.setDisplayName(displayName);
+        }
+        if (request.bio() != null) {
+            user.setBio(request.bio().trim());
+        }
+        userRepository.flush();
+        return MyProfileResponse.of(user, interestTopicIds(userId));
     }
-    @Transactional(readOnly=true) public PageResponse<PostSummaryResponse> saved(String user,String cursor,int limit){return catalog.savedPosts(user,cursor,limit);}
-    @Transactional public Map<String,Object> activity(String user,String kind,String target,boolean add){
-        if(kind.equals("FOLLOW")){if(!personas.existsById(target))throw new ResponseStatusException(HttpStatus.NOT_FOUND,"페르소나를 찾을 수 없습니다.");}
-        else catalog.requirePost(target);
-        action(user,kind,target,add);
-        return Map.of("targetId",target,"active",add,"count",kind.equals("LIKE")?actions.countByActionTypeAndTargetId(kind,target):actions.countByActionTypeAndTargetId(kind,target));
+
+    /** The session may outlive the row (e.g. DB reset); treat that as logged out. */
+    private User loadUser(Long userId) {
+        return userRepository.findById(userId).orElseThrow(ApiException::unauthorized);
     }
-    private void action(String user,String kind,String target,boolean add){
-        boolean exists=actions.existsByUserIdAndActionTypeAndTargetId(user,kind,target);
-        if(add&&!exists)actions.save(new UserAction(user,kind,target));
-        if(!add&&exists)actions.deleteByUserIdAndActionTypeAndTargetId(user,kind,target);
+
+    private List<Long> interestTopicIds(Long userId) {
+        List<Long> topicIds = userInterestRepository.findByUserId(userId).stream()
+                .map(UserInterest::getTopicId)
+                .toList();
+        if (topicIds.isEmpty()) {
+            return List.of();
+        }
+        return VisibilityService.publicTopics(topicRepository.findAllById(topicIds)).stream()
+                .map(Topic::getId)
+                .toList();
     }
 }

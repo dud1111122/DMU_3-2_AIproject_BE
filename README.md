@@ -40,29 +40,20 @@ AI는 관심 주제와 인물별 페르소나 설정을 바탕으로 카드뉴�
 
 ## 로컬 실행
 
-JDK 21이 필요하다. 로컬 기본 DB는 파일형 H2이며 JSON 시드가 최초 실행 시 topic/persona/post/quiz 데이터를 채운다.
+JDK 21과 Docker가 필요하다. DB는 PostgreSQL 16만 사용하며 스키마는 `src/main/resources/db/schema.sql`(=`기획/schema.sql`)이다. 앱은 `ddl-auto=validate`로 스키마를 검증만 한다.
 
 ```bash
+# .env(gitignore 대상)에 DB_*, ADMIN_*/DEMO_*, AI_* 값을 채운다
+docker compose up -d              # dshorts-postgres 컨테이너
+scripts/reset-db.sh dshorts_dev   # DB 재생성 + schema.sql 적용
 ./gradlew bootRun
 ```
 
-- Swagger UI: `http://localhost:8080/swagger-ui/index.html`
-- OpenAPI JSON: `http://localhost:8080/v3/api-docs`
-- 헬스체크: `http://localhost:8080/api/v1/health`
-- H2 콘솔: `http://localhost:8080/h2-console` (JDBC URL은 `jdbc:h2:file:./.local/dshorts`)
-
-개발 중 사용자 활동은 `X-Anonymous-User-Id` 헤더로 구분한다. 헤더를 생략하면 `local-demo-user`를 사용한다. 이는 로그인 전 프로토타입용 식별 방식이다.
-
-AI 생성·대화를 사용하려면 현재 지원하는 `AI_PROVIDER=openai`, `AI_API_KEY`, `AI_MODEL` 환경 변수를 설정한다. 키가 없으면 관련 요청은 503 오류를 반환한다. 관리자 신고·숨김 API는 `ADMIN_TOKEN`을 설정하고 `X-Admin-Token` 헤더를 보내야 한다.
-
-PostgreSQL로 전환할 때는 `DB_URL`, `DB_USERNAME`, `DB_PASSWORD`를 설정한다. 파일형 H2 데이터는 PostgreSQL로 자동 이전되지 않는다.
+- 최초 기동 시 `ADMIN_*`/`DEMO_*` 환경 변수로 계정 2개를, 주제 테이블이 비어 있으면 `seed/*.json`으로 주제 8개·페르소나 10명·예시 게시물 3개를 넣는다.
+- 인증은 세션 쿠키 + CSRF(`X-XSRF-TOKEN` 헤더)다. 자세한 규칙은 [docs/BACKEND_FOUNDATION.md](docs/BACKEND_FOUNDATION.md)를 본다.
+- Swagger UI: `http://localhost:8080/swagger-ui/index.html`, 헬스체크: `http://localhost:8080/api/v1/health`
+- 테스트: `./gradlew build` (Testcontainers로 별도 PostgreSQL을 띄우므로 Docker 실행 필요)
 
 ## 구현된 API 범위
 
-- 피드·주제·페르소나·게시물·통합 검색
-- 관심 주제·모드 설정·팔로우·좋아요·저장
-- 퀴즈 조회·답안 제출·복습 항목
-- 콘텐츠 생성 묶음·페르소나 학습 대화 (AI 키 설정 필요)
-- 게시물 신고와 관리자 게시물 숨김
-
-현재 로그인은 아직 연결하지 않았다. 익명 사용자 헤더와 관리자 토큰은 개발·시연용이며, 배포 전 인증·권한 체계로 교체해야 한다.
+현재는 공통 기반만 있다: 로그인/로그아웃/CSRF, `GET·PATCH /users/me`, 헬스체크, 25개 테이블 엔티티, 시드. 나머지 엔드포인트는 `기획/BE_Endpoint.md` 계약에 맞춰 구현 중이다.

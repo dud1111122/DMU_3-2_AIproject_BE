@@ -1,2 +1,6 @@
 package com.dmu.dshorts.domain.post.entity;
-public enum GroundingMode { MODEL_KNOWLEDGE, SOURCE_GROUNDED }
+
+/** Values match the DB CHECK constraint; stored as text. */
+public enum GroundingMode {
+    MODEL_KNOWLEDGE
+}

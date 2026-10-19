@@ -1,23 +1,48 @@
 package com.dmu.dshorts.domain.user.controller;
 
-import com.dmu.dshorts.domain.post.dto.PostSummaryResponse;
-import com.dmu.dshorts.domain.user.dto.PreferenceUpdateRequest;
+import com.dmu.dshorts.domain.user.dto.MyProfileResponse;
+import com.dmu.dshorts.domain.user.dto.UpdateMeRequest;
 import com.dmu.dshorts.domain.user.service.UserService;
 import com.dmu.dshorts.global.common.ApiResponse;
-import com.dmu.dshorts.global.common.PageResponse;
-import com.dmu.dshorts.global.common.UserIdentity;
+import com.dmu.dshorts.global.security.AuthUser;
+import com.dmu.dshorts.global.security.CurrentUser;
+import com.dmu.dshorts.global.security.SessionAuthenticator;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
-import java.util.Map;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@RestController @RequestMapping("/api/v1/users/me")
+@RestController
+@RequestMapping("/api/v1/users/me")
 public class UserController {
-    private final UserService users;private final UserIdentity identity;
-    public UserController(UserService users,UserIdentity identity){this.users=users;this.identity=identity;}
-    @GetMapping("/preferences") public ApiResponse<Map<String,Object>> preferences(HttpServletRequest req){return ApiResponse.of(users.preferences(identity.current(req)));}
-    @PatchMapping("/preferences") public ApiResponse<Map<String,String>> update(@Valid @RequestBody PreferenceUpdateRequest body,HttpServletRequest req){return ApiResponse.of(users.updateMode(identity.current(req),body.mode()));}
-    @PutMapping("/interests/{topicId}") public ApiResponse<Map<String,String>> addInterest(@PathVariable String topicId,HttpServletRequest req){return ApiResponse.of(users.interest(identity.current(req),topicId,true));}
-    @DeleteMapping("/interests/{topicId}") public ApiResponse<Map<String,String>> removeInterest(@PathVariable String topicId,HttpServletRequest req){return ApiResponse.of(users.interest(identity.current(req),topicId,false));}
-    @GetMapping("/saved-posts") public ApiResponse<PageResponse<PostSummaryResponse>> saved(@RequestParam(required=false) String cursor,@RequestParam(defaultValue="20") int limit,HttpServletRequest req){return ApiResponse.of(users.saved(identity.current(req),cursor,limit));}
+
+    private final UserService userService;
+    private final SessionAuthenticator sessionAuthenticator;
+
+    public UserController(UserService userService, SessionAuthenticator sessionAuthenticator) {
+        this.userService = userService;
+        this.sessionAuthenticator = sessionAuthenticator;
+    }
+
+    @GetMapping
+    public ApiResponse<MyProfileResponse> me(@CurrentUser(required = true) AuthUser user) {
+        return ApiResponse.of(userService.getProfile(user.id()));
+    }
+
+    @PatchMapping
+    public ApiResponse<MyProfileResponse> update(@CurrentUser(required = true) AuthUser user,
+                                                 @Valid @RequestBody UpdateMeRequest request,
+                                                 HttpServletRequest httpRequest,
+                                                 HttpServletResponse httpResponse) {
+        MyProfileResponse profile = userService.updateProfile(user.id(), request);
+        if (!profile.username().equals(user.username())) {
+            AuthUser refreshed = new AuthUser(user.id(), profile.username(), user.role());
+            sessionAuthenticator.refresh(refreshed, httpRequest, httpResponse);
+        }
+        return ApiResponse.of(profile);
+    }
 }

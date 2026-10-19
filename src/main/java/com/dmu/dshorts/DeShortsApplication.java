@@ -2,11 +2,12 @@ package com.dmu.dshorts;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 
-@SpringBootApplication
-@EnableAsync
+// Accounts are checked by AuthService; no in-memory default user.
+@SpringBootApplication(exclude = UserDetailsServiceAutoConfiguration.class)
 public class DeShortsApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(DeShortsApplication.class, args);
     }
