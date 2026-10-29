@@ -2,7 +2,10 @@
   "posts": [
     {
       "personaUsername": "nietzsche",
-      "topics": ["철학", "삶·자기이해"],
+      "topics": [
+        "철학",
+        "삶·자기이해"
+      ],
       "title": "익숙한 가치는 어디서 왔을까",
       "summary": "‘신은 죽었다’는 문장을 실마리로, 당연하게 여기던 가치의 근거를 다시 묻습니다.",
       "caption": "한 문장만 떼어 읽기보다, 기존 가치가 흔들린 뒤 무엇을 기준으로 살아갈지 묻는 맥락을 살펴봅니다.",
@@ -75,7 +78,9 @@
     },
     {
       "personaUsername": "einstein",
-      "topics": ["과학"],
+      "topics": [
+        "과학"
+      ],
       "title": "시간을 잰다는 것은 무엇일까",
       "summary": "빛의 속도가 일정하다는 전제에서 출발해, 관찰자에 따라 시간 측정이 달라질 수 있다는 생각을 살펴봅니다.",
       "caption": "사고실험으로 ‘같은 시간’이라는 말의 전제를 확인해 봅니다.",
@@ -157,7 +162,10 @@
     },
     {
       "personaUsername": "marie.curie",
-      "topics": ["과학", "역사·사회"],
+      "topics": [
+        "과학",
+        "역사·사회"
+      ],
       "title": "보이지 않는 현상을 어떻게 연구할까",
       "summary": "눈에 보이지 않는 방사능을 측정과 반복 검증으로 연구한 과정을 살펴봅니다.",
       "caption": "결과만큼 과정의 근거를 묻는 연구 태도를 함께 봅니다.",
@@ -219,6 +227,2379 @@
           "url": null,
           "publicationLabel": "1903",
           "note": "방사성 물질 연구 과정을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "socrates",
+      "topics": [
+        "철학"
+      ],
+      "title": "아는 것과 안다고 믿는 것",
+      "summary": "델포이 신탁 일화를 실마리로, 모른다는 것을 아는 태도가 왜 배움의 출발점인지 살펴봅니다.",
+      "caption": "‘안다’고 말하기 전에 그 앎을 설명할 수 있는지 함께 물어봅시다.",
+      "publishedHoursAgo": 4,
+      "sections": [
+        {
+          "title": "신탁이 남긴 수수께끼",
+          "body": "플라톤의 『소크라테스의 변론』에 따르면, 친구 카이레폰이 델포이 신전에서 ‘소크라테스보다 지혜로운 사람이 있는가’ 묻자 없다는 답이 나왔다고 합니다. 소크라테스는 이 말을 그대로 믿기보다 그 뜻을 확인하려고 지혜롭다고 알려진 사람들을 찾아가 대화했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "대화에서 드러난 것",
+          "body": "정치인·시인·장인들은 저마다 아는 것이 있었지만, 자기가 잘 모르는 일까지 안다고 여기는 경우가 많았다고 『변론』은 전합니다. 소크라테스가 내린 결론은, 자신은 적어도 모르는 것을 안다고 믿지 않는다는 점에서 조금 더 낫다는 것이었습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "안다고 믿는 상태의 위험",
+          "body": "모른다는 사실을 알면 더 묻고 배우게 됩니다. 반대로 이미 안다고 믿으면 질문이 멈춥니다. 그래서 ‘무지의 자각’은 자신을 깎아내리는 말이 아니라, 배움을 다시 시작할 수 있게 하는 출발점으로 읽힙니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "함께 해 볼 질문",
+          "body": "최근 ‘당연히 안다’고 말한 개념 하나를 골라, 친구에게 예시 없이 정의해 보세요. 막히는 지점이 있다면 그곳이 더 배울 자리입니다. 이 카드는 AI가 플라톤의 기록을 참고해 재구성한 설명이며, 실제 소크라테스의 말이 아닙니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "『소크라테스의 변론』에서 소크라테스는 신탁의 뜻을 확인하려고 지혜롭다는 사람들과 직접 대화했다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "『변론』에 따르면 소크라테스가 신탁의 말을 들은 뒤 한 일은?",
+            "options": [
+              "신탁을 무시하고 아테네를 떠났다",
+              "지혜롭다고 알려진 사람들을 찾아가 대화하며 뜻을 확인했다",
+              "자신이 가장 지혜롭다는 글을 써서 발표했다",
+              "신전에 다시 가서 다른 답을 요구했다"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "소크라테스는 신탁을 곧바로 믿거나 버리지 않고, 지혜롭다는 사람들과 대화하며 그 의미를 검토했습니다."
+          }
+        },
+        {
+          "text": "소크라테스가 말한 ‘조금 더 나은 지혜’는 모르는 것을 안다고 믿지 않는 태도다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "소크라테스가 자신이 ‘조금 더 낫다’고 본 이유로 알맞은 것은?",
+            "options": [
+              "다른 사람보다 아는 지식의 양이 많았기 때문에",
+              "어떤 질문에도 즉시 답할 수 있었기 때문에",
+              "신전에서 특별한 지식을 전해 받았기 때문에",
+              "모르는 것을 안다고 믿지 않았기 때문에"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "소크라테스는 지식의 양이 아니라, 모르는 것을 안다고 착각하지 않는 점에서 자신이 조금 낫다고 보았습니다."
+          }
+        },
+        {
+          "text": "무지를 자각하면 질문이 이어지고, 이미 안다고 믿으면 배움이 멈춘다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "‘무지의 자각’이 배움에 주는 의미로 가장 알맞은 것은?",
+            "options": [
+              "더 묻고 배우게 만드는 출발점이 된다",
+              "배움이 필요 없다는 결론으로 이어진다",
+              "다른 사람의 지식을 무시해도 된다는 뜻이다",
+              "아무 판단도 하지 말아야 한다는 뜻이다"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "모른다는 것을 알 때 질문이 생기고, 그 질문이 배움을 이어 가게 합니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "소크라테스의 변론 (Apologia Sokratous)",
+          "author": "플라톤",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "기원전 4세기 초",
+          "note": "델포이 신탁 일화와 무지의 자각 맥락을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "socrates",
+      "topics": [
+        "삶·자기이해",
+        "철학"
+      ],
+      "title": "좋은 질문은 어떻게 생각을 바꿀까",
+      "summary": "『메논』의 기하학 장면을 따라가며, 답을 주기보다 질문으로 생각을 움직이는 방법을 살펴봅니다.",
+      "caption": "막히는 순간이 실패가 아니라 다음 생각의 문이 될 수 있는지 확인해 봅니다.",
+      "publishedHoursAgo": 5,
+      "sections": [
+        {
+          "title": "정사각형을 두 배로",
+          "body": "플라톤의 『메논』에서 소크라테스는 기하학을 배운 적 없는 소년에게 넓이가 두 배인 정사각형을 만들려면 한 변을 얼마로 해야 하는지 묻습니다. 소년은 처음에 ‘변을 두 배로 하면 된다’고 자신 있게 답합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "틀린 답을 스스로 확인하기",
+          "body": "소크라테스는 정답을 알려 주지 않고, 그림을 그리며 다시 묻습니다. 변을 두 배로 하면 넓이가 네 배가 된다는 것을 소년이 직접 확인하게 되지요. 소년은 혼란에 빠지지만, 이제 자신이 모른다는 것을 알게 됩니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "막힘 다음의 발견",
+          "body": "이어지는 질문 끝에 소년은 원래 정사각형의 대각선을 한 변으로 삼으면 넓이가 두 배가 된다는 것을 찾아냅니다. 대화에서 소크라테스는 혼란을 겪은 지금이 오히려 배우고 싶어지는 상태라고 강조합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "좋은 질문의 조건",
+          "body": "좋은 질문은 상대가 이미 가진 생각을 꺼내 보게 하고, 그 생각을 직접 시험하게 합니다. 이 카드는 AI가 『메논』을 참고해 재구성한 설명입니다. 오늘 고민 하나에 ‘그 생각을 확인하려면 무엇을 봐야 할까?’라고 물어보세요.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "『메논』에서 소년은 처음에 변을 두 배로 하면 넓이도 두 배가 된다고 잘못 생각했다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "『메논』의 소년이 처음 내놓은 답은?",
+            "options": [
+              "대각선을 한 변으로 삼는다",
+              "변의 길이를 그대로 둔다",
+              "변의 길이를 두 배로 한다",
+              "변의 길이를 절반으로 줄인다"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "소년은 처음에 변을 두 배로 하면 된다고 답했지만, 그러면 넓이는 네 배가 됩니다."
+          }
+        },
+        {
+          "text": "소크라테스는 답을 알려 주지 않고 질문으로 소년이 스스로 오류를 확인하게 했다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "이 장면에서 소크라테스가 사용한 방법으로 가장 알맞은 것은?",
+            "options": [
+              "정답과 공식을 먼저 외우게 했다",
+              "질문과 그림으로 소년이 스스로 오류를 확인하게 했다",
+              "틀린 답을 말하면 대화를 중단했다",
+              "다른 사람의 답을 그대로 따라 하게 했다"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "소크라테스는 정답을 주입하기보다 질문으로 소년의 생각을 시험하게 했습니다."
+          }
+        },
+        {
+          "text": "혼란은 실패가 아니라 모른다는 것을 알게 되어 더 배우고 싶어지는 단계로 제시된다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "대화에서 소년이 겪은 혼란은 어떤 의미로 그려지는가?",
+            "options": [
+              "배움을 포기해야 한다는 신호",
+              "소년의 능력이 부족하다는 증거",
+              "질문 방법이 잘못되었다는 표시",
+              "모른다는 것을 알게 되어 배움이 시작되는 단계"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "소크라테스는 혼란을 겪은 상태가 오히려 탐구를 시작하게 만든다고 봅니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "메논 (Menon)",
+          "author": "플라톤",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "기원전 4세기 초",
+          "note": "정사각형을 두 배로 만드는 문답 장면을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "socrates",
+      "topics": [
+        "심리",
+        "철학"
+      ],
+      "title": "내 판단의 근거를 돌아보는 대화",
+      "summary": "‘검토되지 않은 삶’이라는 말을 실마리로, 내 판단의 근거를 스스로 묻는 연습을 해 봅니다.",
+      "caption": "판단을 고치라는 것이 아니라, 그 판단이 어디서 왔는지 먼저 살펴보는 대화입니다.",
+      "publishedHoursAgo": 6,
+      "sections": [
+        {
+          "title": "널리 알려진 한 문장",
+          "body": "“검토되지 않은 삶은 인간에게 살 가치가 없다.”",
+          "citationType": "DIRECT_QUOTE",
+          "quoteAttribution": "플라톤, 『소크라테스의 변론』 38a"
+        },
+        {
+          "title": "검토한다는 것",
+          "body": "여기서 ‘검토’는 자신을 탓하는 일이 아니라, 내가 옳다고 여기는 생각에 어떤 근거가 있는지 질문하는 일로 읽을 수 있습니다. 『변론』에서 소크라테스는 매일 덕과 삶에 대해 대화하는 것을 가장 좋은 일로 꼽습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "근거를 묻는 세 질문",
+          "body": "어떤 판단이 떠오르면 이렇게 물어볼 수 있습니다. 첫째, 나는 무엇을 보고 이렇게 판단했나? 둘째, 그 반대 사례는 없었나? 셋째, 다른 사람이 같은 장면을 본다면 어떻게 말할까? 이 질문들은 판단을 버리라는 것이 아니라 근거를 드러내는 도구입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "읽기의 한계",
+          "body": "이 카드는 AI가 소크라테스적 문답을 현대적 자기 성찰에 적용해 재구성한 것입니다. 마음의 어려움을 진단하거나 상담을 대신하지 않습니다. 힘든 감정이 오래 이어진다면 믿을 만한 사람이나 전문가와 이야기하는 것이 좋습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "‘검토되지 않은 삶’이라는 말은 『소크라테스의 변론』 38a에 나오며, 삶과 생각을 질문으로 살피는 태도를 강조한다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "‘검토되지 않은 삶은 살 가치가 없다’는 문장이 나오는 저작은?",
+            "options": [
+              "플라톤, 『소크라테스의 변론』",
+              "아리스토텔레스, 『니코마코스 윤리학』",
+              "소크라테스가 직접 쓴 일기",
+              "플라톤, 『국가』 제10권"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "이 문장은 플라톤의 『소크라테스의 변론』 38a에 나옵니다. 소크라테스는 직접 저작을 남기지 않았습니다."
+          }
+        },
+        {
+          "text": "판단을 검토할 때는 판단의 근거, 반대 사례, 다른 사람의 관점을 묻는다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "이 게시물이 제안한 ‘근거를 묻는 질문’에 해당하지 않는 것은?",
+            "options": [
+              "나는 무엇을 보고 이렇게 판단했나?",
+              "그 반대 사례는 없었나?",
+              "누가 더 목소리가 큰가?",
+              "다른 사람은 같은 장면을 어떻게 말할까?"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "목소리의 크기는 판단의 근거가 아닙니다. 게시물은 근거·반례·다른 관점을 묻도록 제안합니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "소크라테스의 변론 (Apologia Sokratous)",
+          "author": "플라톤",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "기원전 4세기 초",
+          "note": "38a의 문장과 맥락을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "nietzsche",
+      "topics": [
+        "심리",
+        "철학"
+      ],
+      "title": "비교하는 마음을 다른 시선으로 읽기",
+      "summary": "니체의 ‘르상티망(원한)’ 개념을 빌려, 남과 비교하는 마음이 가치 판단을 어떻게 바꾸는지 읽어 봅니다.",
+      "caption": "비교를 없애자는 이야기가 아니라, 비교가 내 기준을 어떻게 만드는지 알아차리는 연습입니다.",
+      "publishedHoursAgo": 7,
+      "sections": [
+        {
+          "title": "르상티망이라는 말",
+          "body": "니체는 『도덕의 계보』(1887) 첫 번째 논문에서 ‘르상티망(ressentiment)’이라는 프랑스어를 씁니다. 스스로 원하는 것을 이루지 못한 무력감이 원한으로 쌓여, 상대를 깎아내리는 방식으로 가치를 판단하게 되는 마음을 가리킵니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "‘저들은 나쁘다, 그러니 나는 좋다’",
+          "body": "니체의 분석에서 원한에서 나온 가치 판단은 먼저 남을 ‘나쁘다’고 규정한 뒤, 그 반대편에 자신을 ‘좋다’고 놓습니다. 내 기준이 내 안에서 나온 것이 아니라 상대에 대한 반응으로만 만들어진다는 점이 핵심입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 비교에 적용해 보기",
+          "body": "다른 사람의 성취를 보고 ‘별것 아니야’라고 깎아내리고 싶어질 때가 있습니다. 그 순간 내가 진짜 원하는 것이 무엇인지 물어보면, 비교가 감추던 내 기준이 드러날 수 있습니다. 이것은 니체 개념을 현대 일상에 적용한 해석입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "읽을 때 주의할 점",
+          "body": "이 카드는 AI가 니체의 관점을 참고해 재구성한 설명이며, 감정을 진단하거나 치료하는 내용이 아닙니다. 또한 르상티망 개념을 특정 집단을 낮추는 근거로 쓰는 것은 니체 읽기의 오용입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "르상티망은 이루지 못한 무력감이 원한으로 쌓여 상대를 깎아내리는 방식으로 가치를 판단하게 되는 마음이다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "니체가 『도덕의 계보』에서 쓴 ‘르상티망’의 뜻으로 알맞은 것은?",
+            "options": [
+              "새로운 가치를 기쁘게 창조하는 힘",
+              "무력감이 원한으로 쌓여 상대를 깎아내리며 가치를 판단하는 마음",
+              "다른 사람의 성공을 순수하게 축하하는 마음",
+              "과학적 사실을 검증하는 방법"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "르상티망은 무력감에서 생긴 원한이 상대를 낮추는 방식의 가치 판단으로 이어지는 마음을 가리킵니다."
+          }
+        },
+        {
+          "text": "원한에서 나온 가치 판단은 남을 먼저 ‘나쁘다’고 정한 뒤 그 반대편에 자신을 놓는 반응적 구조를 가진다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "니체가 본 원한에서 나온 가치 판단의 특징은?",
+            "options": [
+              "자기 경험에서 먼저 기준을 세운다",
+              "모든 사람을 똑같이 좋다고 평가한다",
+              "가치 판단을 아예 하지 않는다",
+              "상대를 먼저 ‘나쁘다’고 규정하고 그 반대로 자신을 ‘좋다’고 본다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "원한에서 나온 판단은 상대에 대한 반응으로 시작해, 상대의 반대편에 자신을 놓는 구조를 가집니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "도덕의 계보 (Zur Genealogie der Moral)",
+          "author": "프리드리히 니체",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1887",
+          "note": "첫 번째 논문의 르상티망 논의를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "nietzsche",
+      "topics": [
+        "삶·자기이해",
+        "철학"
+      ],
+      "title": "내가 따르는 기준을 다시 묻기",
+      "summary": "『차라투스트라는 이렇게 말했다』의 ‘세 가지 변화’ 비유로, 받아들인 기준을 다시 묻고 새로 세우는 과정을 읽습니다.",
+      "caption": "낙타·사자·아이라는 세 모습이 기준과 맺는 관계를 살펴봅니다.",
+      "publishedHoursAgo": 8,
+      "sections": [
+        {
+          "title": "세 가지 변화",
+          "body": "『차라투스트라는 이렇게 말했다』 1부에는 정신이 낙타가 되고, 낙타가 사자가 되고, 사자가 마침내 아이가 된다는 ‘세 가지 변화’ 이야기가 나옵니다. 각각은 기준을 대하는 서로 다른 태도로 읽을 수 있습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "낙타와 사자",
+          "body": "낙타는 무거운 짐을 기꺼이 지는 정신입니다. 주어진 의무와 기준을 그대로 받아들이지요. 사자는 ‘너는 해야 한다’는 명령 앞에서 ‘나는 원한다’고 말하며 기존 기준에 맞섭니다. 하지만 사자는 거부할 수는 있어도 새 가치를 창조하지는 못합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "아이: 새로 시작하기",
+          "body": "마지막 단계인 아이는 순진함과 새로운 시작, 스스로 굴러가는 바퀴로 비유됩니다. 반항만으로 끝나지 않고, 스스로 긍정할 수 있는 가치를 새로 만드는 단계로 흔히 해석됩니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 질문",
+          "body": "내가 지키는 기준 하나를 골라 보세요. 그것을 낙타처럼 지고 있나요, 사자처럼 거부하고 있나요, 아이처럼 다시 긍정하고 있나요? 이 카드는 AI가 니체의 비유를 참고해 재구성한 해석이며 단 하나의 정답 독법은 아닙니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "‘세 가지 변화’에서 낙타는 주어진 의무와 기준을 그대로 짊어지는 정신을 뜻한다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "‘세 가지 변화’ 비유에서 낙타가 상징하는 태도는?",
+            "options": [
+              "주어진 의무와 기준을 그대로 짊어지는 태도",
+              "모든 기준을 거부하는 태도",
+              "새로운 가치를 놀이처럼 창조하는 태도",
+              "기준에 관심이 없는 태도"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "낙타는 무거운 짐, 곧 주어진 의무와 기준을 기꺼이 짊어지는 정신으로 그려집니다."
+          }
+        },
+        {
+          "text": "사자는 기존 명령을 거부할 수 있지만 새 가치를 창조하지는 못하며, 그 일은 아이의 단계로 넘어간다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "사자의 단계 다음에 아이의 단계가 필요한 이유로 알맞은 것은?",
+            "options": [
+              "사자가 의무를 너무 많이 짊어지기 때문에",
+              "사자는 거부할 수 있지만 새 가치를 창조하지는 못하기 때문에",
+              "아이가 더 강한 힘으로 명령을 내리기 때문에",
+              "사자가 옛 기준으로 되돌아가기 때문에"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "사자는 ‘너는 해야 한다’에 맞서지만 창조에는 이르지 못하고, 새로운 시작은 아이로 비유됩니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "차라투스트라는 이렇게 말했다 (Also sprach Zarathustra)",
+          "author": "프리드리히 니체",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1883–1885",
+          "note": "1부 ‘세 가지 변화’ 대목을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "kant",
+      "topics": [
+        "철학"
+      ],
+      "title": "모두가 같은 행동을 해도 괜찮을까",
+      "summary": "칸트의 보편화 질문으로, 내 행동 원칙이 모두의 법칙이 되어도 괜찮은지 따져 봅니다.",
+      "caption": "‘나 하나쯤이야’라는 생각을 원칙의 언어로 바꿔 시험해 봅니다.",
+      "publishedHoursAgo": 9,
+      "sections": [
+        {
+          "title": "행동 뒤의 원칙",
+          "body": "칸트는 우리가 행동할 때 마음속에 ‘이런 상황에서는 이렇게 한다’는 주관적 원칙, 곧 준칙(maxim)을 가진다고 봅니다. 도덕적 판단은 겉으로 드러난 행동보다 이 준칙을 살피는 데서 시작됩니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "보편화 질문",
+          "body": "『도덕형이상학 정초』(1785)에서 칸트는, 내 준칙이 동시에 보편적 법칙이 되기를 내가 바랄 수 있는지에 따라 행동하라는 원칙을 제시합니다. 쉽게 말해 ‘모두가 이 원칙대로 행동해도 괜찮은가?’를 묻는 것입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "거짓 약속의 예",
+          "body": "칸트가 드는 예는 갚을 생각 없이 ‘갚겠다’고 약속하고 돈을 빌리는 경우입니다. 모두가 이렇게 한다면 아무도 약속을 믿지 않게 되어, 거짓 약속이라는 행동 자체가 성립하지 않습니다. 그래서 이 준칙은 보편화될 수 없습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "일상에서 시험해 보기",
+          "body": "줄을 새치기하거나 과제를 베끼고 싶을 때, 그 준칙을 모두의 법칙으로 바꿔 말해 보세요. 이 원칙은 기계적인 정답 판정기가 아니라 판단을 점검하는 질문입니다. 이 카드는 AI가 칸트의 논의를 참고해 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "칸트의 보편화 원칙은 내 준칙이 보편적 법칙이 되기를 바랄 수 있는지 묻는다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "칸트의 보편화 질문에 가장 가까운 것은?",
+            "options": [
+              "이 행동으로 내가 얻는 이익이 가장 큰가?",
+              "다수가 이미 이렇게 행동하고 있는가?",
+              "모두가 이 원칙대로 행동해도 괜찮은가?",
+              "이 행동이 법으로 금지되어 있는가?"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "칸트는 내 준칙이 모든 사람의 보편적 법칙이 되기를 바랄 수 있는지를 묻습니다."
+          }
+        },
+        {
+          "text": "거짓 약속의 준칙은 모두가 따르면 약속에 대한 신뢰가 사라져 스스로 성립하지 않으므로 보편화될 수 없다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "거짓 약속의 준칙이 보편화될 수 없는 이유는?",
+            "options": [
+              "돈을 빌리는 일 자체가 금지되어 있어서",
+              "모두가 그렇게 하면 아무도 약속을 믿지 않아 거짓 약속이 성립하지 않아서",
+              "약속한 사람이 처벌을 받게 되어서",
+              "빌린 돈의 액수가 너무 커서"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "모두가 거짓 약속을 하면 약속이라는 제도 자체가 무너져, 그 준칙은 자기모순에 빠집니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "도덕형이상학 정초 (Grundlegung zur Metaphysik der Sitten)",
+          "author": "이마누엘 칸트",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1785",
+          "note": "보편 법칙의 정식과 거짓 약속 예시를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "kant",
+      "topics": [
+        "역사·사회",
+        "철학"
+      ],
+      "title": "타인을 수단으로만 대한다는 것",
+      "summary": "인간을 ‘수단으로만’ 대하지 말라는 칸트의 원칙과 존엄의 개념, 그것이 현대에 읽히는 방식을 살펴봅니다.",
+      "caption": "핵심은 ‘수단으로’가 아니라 ‘수단으로만’이라는 데 있습니다.",
+      "publishedHoursAgo": 10,
+      "sections": [
+        {
+          "title": "인간성의 원칙",
+          "body": "『도덕형이상학 정초』에서 칸트는 자신과 타인의 인격에 있는 인간성을 결코 단지 수단으로만 대하지 말고, 언제나 동시에 목적으로 대하라는 원칙을 제시합니다. 보편화 원칙과 함께 정언명령의 대표적 정식으로 꼽힙니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "‘만’이라는 한 글자",
+          "body": "우리는 택시 기사나 점원의 도움을 받으며 서로를 수단으로 삼습니다. 칸트는 이것 자체를 금지하지 않습니다. 문제는 상대의 동의나 목적을 무시하고 오직 내 목적을 위한 도구로만 다룰 때입니다. 속이거나 강제하는 경우가 대표적입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "가격과 존엄",
+          "body": "칸트는 다른 것으로 바꿀 수 있는 것은 ‘가격’을 갖고, 어떤 대체물도 허용하지 않는 것은 ‘존엄’을 갖는다고 구분합니다. 이성적 존재로서의 인간은 존엄을 지닌다는 것이 그의 생각입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "시대 맥락과 현대적 읽기",
+          "body": "이 원칙은 18세기 계몽주의의 맥락에서 쓰였습니다. 오늘날 인권·노동·연구 윤리 논의에서 자주 인용되지만, 그런 적용은 칸트 당시의 주장이 아니라 후대의 해석입니다. 이 카드는 AI가 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "칸트는 타인을 수단으로 대하는 것 자체가 아니라, 동시에 목적으로 대하지 않고 ‘수단으로만’ 대하는 것을 문제 삼는다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "칸트의 인간성 원칙에 비추어 문제가 되는 경우는?",
+            "options": [
+              "점원에게 물건을 사며 도움을 받는 경우",
+              "택시 기사에게 요금을 내고 목적지까지 가는 경우",
+              "친구와 서로 숙제를 도와주는 경우",
+              "상대를 속여 내 목적을 위한 도구로만 이용하는 경우"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "칸트는 상대를 동시에 목적으로 존중하지 않고, 속임이나 강제로 오직 도구로만 쓰는 것을 문제 삼습니다."
+          }
+        },
+        {
+          "text": "칸트는 대체 가능한 ‘가격’과 대체할 수 없는 ‘존엄’을 구분하고, 인간은 존엄을 가진다고 보았다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "칸트의 ‘가격’과 ‘존엄’ 구분에 대한 설명으로 알맞은 것은?",
+            "options": [
+              "존엄은 대체할 수 없는 가치이며 인간은 존엄을 가진다",
+              "존엄은 시장에서 가장 비싼 가격을 뜻한다",
+              "모든 것은 결국 가격으로 환산될 수 있다",
+              "가격과 존엄은 같은 개념을 다르게 부르는 말이다"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "칸트는 다른 것으로 대체할 수 있는 것은 가격을, 대체할 수 없는 것은 존엄을 가진다고 구분했습니다."
+          }
+        },
+        {
+          "text": "인간성 원칙을 현대 인권·연구 윤리에 적용하는 것은 칸트 당시의 주장이 아니라 후대의 해석이다.",
+          "sectionOrder": 4,
+          "question": {
+            "prompt": "인간성 원칙의 현대적 적용에 대한 설명으로 알맞은 것은?",
+            "options": [
+              "칸트가 직접 현대 연구 윤리 규정을 만들었다",
+              "현대적 적용은 의미가 없으므로 하면 안 된다",
+              "18세기 원칙을 후대가 해석해 적용한 것이다",
+              "칸트는 인권이라는 말을 처음으로 법에 넣었다"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "원칙은 18세기 계몽주의 맥락에서 쓰였고, 현대 윤리 논의에의 적용은 후대의 해석입니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "도덕형이상학 정초 (Grundlegung zur Metaphysik der Sitten)",
+          "author": "이마누엘 칸트",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1785",
+          "note": "인간성 정식과 가격·존엄 구분을 확인할 참고 문헌으로 AI가 제시함"
+        },
+        {
+          "title": "계몽이란 무엇인가에 대한 답변 (Beantwortung der Frage: Was ist Aufklärung?)",
+          "author": "이마누엘 칸트",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1784",
+          "note": "칸트 윤리가 놓인 계몽주의 맥락을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "kant",
+      "topics": [
+        "삶·자기이해",
+        "철학"
+      ],
+      "title": "결과와 행동의 이유를 구분하기",
+      "summary": "정직한 상인 예시로, 같은 행동이라도 ‘왜’ 했는지에 따라 도덕적 평가가 달라진다는 칸트의 생각을 살펴봅니다.",
+      "caption": "좋은 결과와 좋은 의지는 같은 것일까요? 행동의 이유를 들여다봅니다.",
+      "publishedHoursAgo": 11,
+      "sections": [
+        {
+          "title": "무조건 좋은 것",
+          "body": "『도덕형이상학 정초』 첫 부분에서 칸트는 세상에서 제한 없이 좋다고 할 수 있는 것은 ‘선한 의지’뿐이라고 말합니다. 재능이나 행운은 나쁜 의지와 만나면 해로울 수 있기 때문입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "정직한 상인",
+          "body": "칸트는 아이에게도 바가지를 씌우지 않는 상인을 예로 듭니다. 정직하게 행동했지만, 그 이유가 손님을 잃지 않으려는 이익 계산이라면 그 행동은 의무에 ‘맞을’ 뿐 의무에서 ‘나온’ 것은 아니라고 봅니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "의무에 맞음과 의무에서 나옴",
+          "body": "칸트에게 도덕적 가치는 결과가 아니라 행동의 원칙, 곧 그 행동을 이끈 이유에 있습니다. 겉으로는 같은 정직한 행동이라도 ‘옳기 때문에’ 한 것인지 ‘이익이 되기 때문에’ 한 것인지에 따라 평가가 달라집니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "생각해 볼 점",
+          "body": "결과를 전혀 고려하지 않아도 되는지는 오늘날에도 논쟁거리이며, 결과를 중시하는 공리주의 같은 다른 입장도 있습니다. 이 카드는 AI가 칸트의 관점을 참고해 재구성한 설명입니다. 최근의 착한 행동 하나를 골라 ‘왜’ 했는지 적어 보세요.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "칸트는 제한 없이 좋은 것은 선한 의지뿐이라고 보았다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "칸트가 ‘제한 없이 좋다’고 본 것은?",
+            "options": [
+              "뛰어난 재능",
+              "선한 의지",
+              "큰 행운",
+              "좋은 결과"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "재능·행운·결과는 나쁜 의지와 만나면 해로울 수 있으므로, 칸트는 선한 의지만을 무조건 좋다고 보았습니다."
+          }
+        },
+        {
+          "text": "이익 때문에 정직한 상인의 행동은 의무에 맞을 뿐 의무에서 나온 것이 아니어서, 칸트는 도덕적 가치를 인정하지 않는다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "정직한 상인 예시에서 칸트가 강조한 점은?",
+            "options": [
+              "정직하면 손님이 늘어 결과가 좋다",
+              "아이에게는 정직할 필요가 없다",
+              "이익 때문에 정직했다면 의무에 맞을 뿐 의무에서 나온 행동은 아니다",
+              "상인은 도덕적 평가의 대상이 아니다"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "칸트는 행동의 이유가 이익 계산이라면 겉보기에 옳아도 의무에서 나온 행동은 아니라고 보았습니다."
+          }
+        },
+        {
+          "text": "칸트 윤리에서 행동의 도덕적 가치는 결과가 아니라 행동을 이끈 원칙(이유)에 있다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "칸트에 따르면 행동의 도덕적 가치는 어디에 있는가?",
+            "options": [
+              "행동이 가져온 결과의 크기",
+              "주변 사람들의 칭찬",
+              "행동에 든 노력의 양",
+              "행동을 이끈 원칙, 곧 행동의 이유"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "칸트는 결과보다 행동이 어떤 원칙에서 나왔는지를 도덕적 평가의 기준으로 삼습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "도덕형이상학 정초 (Grundlegung zur Metaphysik der Sitten)",
+          "author": "이마누엘 칸트",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1785",
+          "note": "선한 의지와 정직한 상인 예시를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "einstein",
+      "topics": [
+        "과학"
+      ],
+      "title": "빛과 함께 달린다면 무엇을 물을까",
+      "summary": "열여섯 살 아인슈타인이 떠올렸다는 ‘빛을 따라 달리기’ 사고실험이 어떤 질문을 남겼는지 살펴봅니다.",
+      "caption": "실제 실험이 아니라 생각 속 실험입니다. 그런데도 왜 중요했을까요?",
+      "publishedHoursAgo": 12,
+      "sections": [
+        {
+          "title": "열여섯 살의 상상",
+          "body": "아인슈타인은 「자전적 노트」에서 열여섯 살 무렵 한 가지 역설을 떠올렸다고 회상합니다. 빛의 속도로 빛을 뒤쫓아 간다면, 그 빛은 어떻게 보일까 하는 질문이었습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "멈춘 빛이라는 이상함",
+          "body": "빛과 나란히 달린다면, 빛은 공간 속에서 진동은 하지만 앞으로 나아가지 않는 ‘멈춘 전자기장’처럼 보여야 할 것 같습니다. 그런데 맥스웰의 전자기 이론에도, 경험에도 그런 것은 없다는 점이 그를 괴롭혔다고 합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "사고실험의 역할",
+          "body": "이 장면은 실제로 측정한 실험이 아니라 사고실험입니다. 사고실험은 결과를 증명하지 않지만, 당연하다고 여긴 전제들이 서로 부딪히는 지점을 드러냅니다. 실제 검증은 이후 이론과 측정이 맡습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "십 년 뒤의 답",
+          "body": "아인슈타인은 이 역설이 특수 상대성 이론의 싹이었다고 돌아봅니다. 1905년 이론은 빛의 속도가 모든 관성 관찰자에게 같다는 원리를 받아들여, 빛을 ‘따라잡는’ 일이 불가능함을 보여 줍니다. 이 카드는 AI가 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "빛을 따라 달리면 멈춘 전자기장을 보게 될 것 같다는 생각은 맥스웰 이론·경험과 맞지 않는 역설이었다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "‘빛을 따라 달리기’ 사고실험에서 아인슈타인이 느낀 문제는?",
+            "options": [
+              "빛이 너무 밝아 볼 수 없다는 점",
+              "달리는 사람이 너무 빨리 지친다는 점",
+              "빛과 나란히 달리면 멈춘 전자기장이 보일 것 같은데 그런 것은 이론에도 경험에도 없다는 점",
+              "빛의 색깔이 바뀐다는 점"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "멈춘 채 진동하는 전자기장은 맥스웰 이론에도 경험에도 없어서 역설로 느껴졌습니다."
+          }
+        },
+        {
+          "text": "사고실험은 결과를 증명하는 실제 실험이 아니라 전제들의 충돌을 드러내는 도구다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "사고실험에 대한 설명으로 가장 알맞은 것은?",
+            "options": [
+              "전제들이 충돌하는 지점을 드러내는 생각의 도구다",
+              "실험실에서 측정한 결과를 기록한 것이다",
+              "그 자체로 이론을 최종 증명한다",
+              "과학에서는 쓰이지 않는 상상일 뿐이다"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "사고실험은 실제 측정을 대신하지 않지만, 당연한 전제들이 서로 맞지 않는 지점을 드러냅니다."
+          }
+        },
+        {
+          "text": "특수 상대성 이론(1905)은 빛의 속도가 모든 관성 관찰자에게 같다는 원리로 이 역설에 답한다.",
+          "sectionOrder": 4,
+          "question": {
+            "prompt": "특수 상대성 이론에 따르면 빛을 따라잡을 수 없는 이유는?",
+            "options": [
+              "빛은 공기 중에서만 움직이기 때문에",
+              "빛의 속도가 모든 관성 관찰자에게 같기 때문에",
+              "관찰자의 눈이 빛을 감지하지 못하기 때문에",
+              "빛은 시간이 지나면 사라지기 때문에"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "관찰자가 아무리 빨리 움직여도 진공에서의 빛의 속도는 같게 측정되므로 빛을 따라잡을 수 없습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "Autobiographical Notes (Albert Einstein: Philosopher-Scientist 수록)",
+          "author": "Albert Einstein",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1949",
+          "note": "P. A. Schilpp 엮음. 열여섯 살의 사고실험 회상을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "einstein",
+      "topics": [
+        "철학",
+        "과학"
+      ],
+      "title": "좋은 과학 질문은 전제를 드러낸다",
+      "summary": "‘동시’라는 말에 숨은 전제를 예로, 좋은 과학 질문이 당연함을 어떻게 드러내는지 살펴봅니다.",
+      "caption": "답보다 질문이 더 중요할 때가 있습니다. 질문이 무엇을 당연하게 여기는지 함께 봅니다.",
+      "publishedHoursAgo": 13,
+      "sections": [
+        {
+          "title": "질문을 세우는 일",
+          "body": "“문제를 정식화하는 것은 그 해답보다 더 본질적인 경우가 많다.”",
+          "citationType": "DIRECT_QUOTE",
+          "quoteAttribution": "알베르트 아인슈타인·레오폴트 인펠트, 『물리학의 진화』 (1938)"
+        },
+        {
+          "title": "당연함 속의 전제",
+          "body": "뉴턴 역학에서는 시간이 모든 관찰자에게 똑같이 흐른다고 여겼습니다. 그래서 ‘두 사건이 동시에 일어났다’는 말은 누구에게나 같은 뜻으로 보였습니다. 이 전제는 너무 당연해 오랫동안 질문의 대상이 되지 않았습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "‘동시’를 어떻게 확인하나",
+          "body": "1905년 논문은 떨어진 두 장소의 사건이 동시인지 실제로 어떻게 확인하는지 묻습니다. 시계를 신호로 맞추는 절차를 따져 보면, 서로 다르게 움직이는 관찰자는 동시성을 다르게 판단할 수 있다는 결론에 이릅니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "내 질문의 전제 찾기",
+          "body": "어떤 질문을 할 때 ‘이 질문은 무엇을 이미 사실로 깔고 있나?’를 함께 물어보세요. 다만 질문만으로 이론이 옳아지지는 않고, 실험과 관측으로 검증되어야 합니다. 이 카드는 AI가 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "뉴턴 역학은 시간이 모든 관찰자에게 똑같이 흐른다는 전제를 당연하게 여겼다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "뉴턴 역학이 당연하게 여긴 전제는?",
+            "options": [
+              "빛의 속도는 관찰자마다 같다",
+              "시간은 관찰자에 따라 다르게 흐른다",
+              "동시성은 측정할 수 없다",
+              "시간은 모든 관찰자에게 똑같이 흐른다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "뉴턴 역학은 절대적인 시간을 전제로 했기 때문에 ‘동시’가 누구에게나 같다고 보았습니다."
+          }
+        },
+        {
+          "text": "‘동시인지 어떻게 확인하는가’라는 질문은 동시성이 관찰자에 따라 달라질 수 있음을 드러냈다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "1905년 논문의 ‘동시’에 대한 질문이 드러낸 것은?",
+            "options": [
+              "동시성 판단은 시계를 맞추는 절차에 달려 있고 관찰자에 따라 다를 수 있다",
+              "시계는 과학에서 쓸모가 없다",
+              "모든 사건은 언제나 동시에 일어난다",
+              "동시성은 날씨에 따라 달라진다"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "떨어진 시계를 신호로 맞추는 절차를 따져 보면, 다르게 움직이는 관찰자는 동시성을 다르게 판단할 수 있습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "물리학의 진화 (The Evolution of Physics)",
+          "author": "Albert Einstein, Leopold Infeld",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1938",
+          "note": "문제 정식화에 관한 문장을 확인할 참고 문헌으로 AI가 제시함"
+        },
+        {
+          "title": "On the Electrodynamics of Moving Bodies (Zur Elektrodynamik bewegter Körper)",
+          "author": "Albert Einstein",
+          "publisher": "Annalen der Physik",
+          "url": null,
+          "publicationLabel": "1905",
+          "note": "동시성 논의를 확인할 원 논문으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "marie.curie",
+      "topics": [
+        "역사·사회",
+        "과학"
+      ],
+      "title": "과학 발견을 개인의 이야기로만 볼 수 있을까",
+      "summary": "폴로늄과 라듐의 발견을 둘러싼 공동 연구와 선행 연구, 도구의 역할을 살펴봅니다.",
+      "caption": "한 사람의 천재담 대신, 발견을 가능하게 한 사람들과 조건을 함께 봅니다.",
+      "publishedHoursAgo": 14,
+      "sections": [
+        {
+          "title": "앞선 발견에서 시작하다",
+          "body": "1896년 앙리 베크렐은 우라늄 화합물이 빛을 쬐지 않아도 사진 건판을 감광시키는 선을 낸다는 것을 발견했습니다. 마리 퀴리의 연구는 이 현상을 더 정밀하게 재는 데서 출발했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "측정 도구와 동료",
+          "body": "측정에는 피에르 퀴리와 그의 형 자크 퀴리가 앞서 연구한 압전 효과를 이용한 정밀 전위계가 쓰였습니다. 1898년 폴로늄과 라듐 발견은 피에르 퀴리와 함께 발표했고, 라듐 논문에는 화학자 귀스타브 베몽도 공동 저자로 참여했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "인정과 수상",
+          "body": "1903년 노벨 물리학상은 베크렐, 피에르 퀴리, 마리 퀴리 세 사람이 함께 받았습니다. 마리 퀴리는 1911년 라듐과 폴로늄 연구로 노벨 화학상을 받았는데, 이 역시 오랜 공동 작업과 실험실 사람들의 노력 위에 있었습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "이야기를 넓게 읽기",
+          "body": "한 사람의 이야기는 기억하기 쉽지만, 선행 연구·도구·동료·사회적 조건을 지우기 쉽습니다. 당시 여성 과학자가 겪은 제약도 맥락의 일부입니다. 이 카드는 AI가 역사적 기록을 참고해 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "마리 퀴리의 연구는 1896년 베크렐의 우라늄 방사선 발견이라는 선행 연구에서 출발했다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "마리 퀴리 연구의 출발점이 된 선행 발견은?",
+            "options": [
+              "뉴턴의 만유인력 법칙",
+              "베크렐의 우라늄 방사선 발견",
+              "다윈의 자연선택 이론",
+              "아인슈타인의 상대성 이론"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "1896년 베크렐이 우라늄 화합물에서 나오는 선을 발견했고, 퀴리는 이를 정밀하게 측정하는 연구를 이어 갔습니다."
+          }
+        },
+        {
+          "text": "폴로늄·라듐 발견은 피에르 퀴리, 귀스타브 베몽과의 공동 작업과 정밀 측정 도구 위에서 이루어졌다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "폴로늄과 라듐 발견 과정에 대한 설명으로 알맞은 것은?",
+            "options": [
+              "마리 퀴리가 아무 도구 없이 혼자 이루었다",
+              "다른 연구자의 결과를 그대로 옮겨 적었다",
+              "우연히 한 번의 관찰로 끝났다",
+              "동료들과의 공동 작업과 정밀 측정 도구가 함께했다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "발견은 피에르 퀴리·베몽과의 공동 작업, 압전 효과를 이용한 전위계 같은 도구 위에서 이루어졌습니다."
+          }
+        },
+        {
+          "text": "1903년 노벨 물리학상은 베크렐과 퀴리 부부 세 사람이 공동으로 받았다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "1903년 노벨 물리학상을 함께 받은 사람들은?",
+            "options": [
+              "베크렐, 피에르 퀴리, 마리 퀴리",
+              "마리 퀴리 한 사람",
+              "피에르 퀴리와 자크 퀴리",
+              "아인슈타인과 마리 퀴리"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "1903년 노벨 물리학상은 방사능 연구로 베크렐과 퀴리 부부가 공동 수상했습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "Pierre Curie",
+          "author": "Marie Curie",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1923",
+          "note": "공동 연구 과정과 피에르 퀴리의 역할을 확인할 참고 문헌으로 AI가 제시함"
+        },
+        {
+          "title": "마담 퀴리 (Madame Curie)",
+          "author": "Ève Curie",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1937",
+          "note": "연구 생애와 시대 맥락을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "marie.curie",
+      "topics": [
+        "삶·자기이해",
+        "과학"
+      ],
+      "title": "실패한 측정에서도 배우는 태도",
+      "summary": "예상과 다른 측정값을 버리지 않고 질문으로 바꾼 연구 과정을 통해, 실패에서 배우는 태도를 살펴봅니다.",
+      "caption": "‘틀렸다’는 결과가 오히려 새로운 질문을 줄 때가 있습니다.",
+      "publishedHoursAgo": 15,
+      "sections": [
+        {
+          "title": "예상과 맞지 않는 값",
+          "body": "마리 퀴리는 여러 광물의 방사능을 재다가, 우라늄 광석인 피치블렌드가 그 안의 우라늄 양으로 예상되는 것보다 훨씬 강한 방사능을 보인다는 것을 알았습니다. 예상과 어긋난 측정값이었습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "먼저 측정을 의심하기",
+          "body": "예상과 다른 값이 나오면 곧바로 큰 발견이라고 결론짓기보다, 측정이 반복되는지와 다른 시료에서도 같은지를 확인하는 것이 순서입니다. 반복 측정에서도 차이가 이어지자, 아직 알려지지 않은 원소가 있다는 가설이 세워졌습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "길고 반복적인 과정",
+          "body": "가설을 확인하기 위해 많은 양의 광석을 화학적으로 분리하고 다시 측정하는 작업이 몇 년 동안 이어졌습니다. 라듐 화합물을 확인할 만큼 분리하기까지 수많은 시도와 다시 하기가 필요했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "일상에 옮겨 보기",
+          "body": "기대와 다른 결과가 나왔을 때 ‘무엇이 달랐나, 다시 해도 같은가’를 먼저 적어 보세요. 방사성 물질은 매우 위험하므로 어떤 실험도 직접 따라 해서는 안 됩니다. 이 카드는 AI가 역사적 기록을 참고해 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "피치블렌드가 우라늄 양으로 예상되는 것보다 강한 방사능을 보인 예상 밖의 측정값이 새 원소 탐구의 실마리가 되었다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "새로운 원소를 찾게 된 실마리가 된 관찰은?",
+            "options": [
+              "피치블렌드에서 방사능이 전혀 나오지 않았다",
+              "모든 광물의 방사능이 똑같았다",
+              "피치블렌드가 우라늄 양으로 예상되는 것보다 강한 방사능을 보였다",
+              "우라늄이 빛을 내며 사라졌다"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "우라늄 양만으로 설명되지 않는 강한 방사능이 알려지지 않은 원소가 있다는 가설로 이어졌습니다."
+          }
+        },
+        {
+          "text": "예상 밖의 결과는 먼저 반복 측정과 비교로 확인한 뒤 가설로 발전시킨다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "예상과 다른 측정값을 얻었을 때 이 게시물이 제시한 태도는?",
+            "options": [
+              "반복 측정과 다른 시료 비교로 먼저 확인한다",
+              "즉시 큰 발견이라고 발표한다",
+              "예상과 다르니 기록에서 지운다",
+              "예상에 맞게 값을 고친다"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "예상 밖의 값은 버리거나 서둘러 결론짓지 않고, 반복 측정으로 확인한 뒤 가설로 발전시킵니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "Recherches sur les substances radioactives",
+          "author": "Marie Curie",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1903",
+          "note": "피치블렌드 측정과 분리 과정을 확인할 참고 문헌으로 AI가 제시함"
+        },
+        {
+          "title": "Pierre Curie",
+          "author": "Marie Curie",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1923",
+          "note": "연구 과정의 회고를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "darwin",
+      "topics": [
+        "과학"
+      ],
+      "title": "자연선택은 가장 강한 생존이라는 뜻일까",
+      "summary": "‘적자생존’이라는 말이 ‘가장 강한 개체만 살아남는다’는 뜻이 아님을 살펴봅니다.",
+      "caption": "강함이 아니라 주어진 환경에서의 생존과 번식이 핵심입니다. 자주 오해되는 말을 함께 구분해 봅시다.",
+      "publishedHoursAgo": 16,
+      "sections": [
+        {
+          "title": "흔한 오해 하나",
+          "body": "자연선택이라고 하면 ‘가장 힘센 동물이 이긴다’는 장면을 떠올리기 쉽습니다. 하지만 자연선택은 힘겨루기에 대한 이론이 아닙니다. 이 카드들은 AI가 다윈의 관점을 참고해 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "‘적자생존’이라는 말의 출처",
+          "body": "‘적자생존(survival of the fittest)’은 철학자 허버트 스펜서가 만든 표현입니다. 다윈은 이 말을 『종의 기원』 제5판(1869)에서 자연선택을 설명하는 다른 표현으로 받아들였습니다. 초판은 1859년에 나왔습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "‘적합하다’는 무엇일까",
+          "body": "여기서 ‘적합하다’는 더 강하다는 뜻이 아니라, 특정 환경에서 살아남아 자손을 남기기에 조금 더 유리하다는 뜻입니다. 작고 눈에 띄지 않는 몸, 추위를 견디는 털, 빨리 번식하는 성질도 환경에 따라 유리할 수 있습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "환경이 바뀌면 기준도 바뀐다",
+          "body": "어떤 특징이 유리한지는 환경에 따라 달라집니다. 그래서 자연선택은 우열의 사다리나 정해진 목적을 향한 진보가 아닙니다. 이 생물학 개념을 사람 사이의 차별을 정당화하는 데 쓰는 것은 잘못된 적용입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "‘적자생존’은 허버트 스펜서의 표현이며, 다윈은 『종의 기원』 제5판(1869)에서 이를 자연선택의 다른 표현으로 받아들였다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "‘적자생존(survival of the fittest)’이라는 표현에 대한 설명으로 옳은 것은?",
+            "options": [
+              "다윈이 『종의 기원』 초판에서 처음 만든 말이다",
+              "멘델이 유전 법칙을 설명하며 만든 말이다",
+              "허버트 스펜서가 만든 표현을 다윈이 제5판에서 받아들였다",
+              "현대 유전학자들이 20세기에 새로 만든 말이다"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "이 표현은 허버트 스펜서가 만들었고, 다윈은 『종의 기원』 제5판(1869)에서 자연선택을 가리키는 표현으로 사용했습니다."
+          }
+        },
+        {
+          "text": "자연선택에서 ‘적합함’은 힘의 크기가 아니라 주어진 환경에서 생존과 번식에 유리한 정도를 뜻한다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "자연선택에서 말하는 ‘적합한 개체’에 가장 가까운 것은?",
+            "options": [
+              "그 환경에서 살아남아 자손을 남기기에 더 유리한 개체",
+              "몸집이 가장 크고 힘이 센 개체",
+              "다른 개체를 가장 많이 이긴 개체",
+              "가장 오래 산 개체"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "적합함은 환경과의 관계에서 생존과 번식에 유리한 정도를 뜻합니다. 힘이 세거나 오래 사는 것만으로는 적합함이 정해지지 않습니다."
+          }
+        },
+        {
+          "text": "유리한 특징은 환경에 따라 달라지므로 자연선택은 우열의 사다리나 목적을 향한 진보가 아니다.",
+          "sectionOrder": 4,
+          "question": {
+            "prompt": "자연선택에 대한 설명으로 가장 적절하지 않은 것은?",
+            "options": [
+              "어떤 특징이 유리한지는 환경에 따라 달라진다",
+              "작고 눈에 띄지 않는 특징도 유리할 수 있다",
+              "개체군에 있는 변이가 선택의 재료가 된다",
+              "생물은 정해진 목표를 향해 더 우월한 존재로 진보한다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "자연선택은 정해진 목적이나 우열의 사다리를 전제하지 않습니다. 환경이 바뀌면 유리한 특징도 바뀝니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "On the Origin of Species (종의 기원)",
+          "author": "Charles Darwin",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1859",
+          "note": "자연선택 개념과 제5판(1869)의 ‘적자생존’ 표현 도입을 확인할 참고 문헌으로 AI가 제시함"
+        },
+        {
+          "title": "The Principles of Biology",
+          "author": "Herbert Spencer",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1864",
+          "note": "‘survival of the fittest’ 표현의 출처를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "darwin",
+      "topics": [
+        "과학"
+      ],
+      "title": "작은 차이를 오래 관찰하는 이유",
+      "summary": "개체 사이의 작은 차이와 오랜 시간의 누적이 진화를 이해하는 열쇠가 되는 이유를 살펴봅니다.",
+      "caption": "같은 종 안의 작은 변이를 기록하고 비교하는 일에서 큰 이론이 시작될 수 있습니다.",
+      "publishedHoursAgo": 17,
+      "sections": [
+        {
+          "title": "같아 보여도 같지 않다",
+          "body": "같은 종의 새나 같은 품종의 비둘기도 자세히 보면 부리 모양, 깃털 색, 크기가 조금씩 다릅니다. 다윈은 이런 개체 사이의 차이, 곧 변이가 자연선택의 재료가 된다고 보았습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "비둘기 사육에서 얻은 단서",
+          "body": "다윈은 『종의 기원』 첫 장에서 사람이 원하는 특징을 골라 번식시키는 인위선택을 먼저 다룹니다. 비둘기 품종이 다양하게 달라진 사례는, 선택이 세대를 거치며 큰 차이를 만들 수 있음을 보여 주는 비유가 되었습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "작은 차이 × 긴 시간",
+          "body": "한 세대에서는 거의 보이지 않는 차이라도, 조금 더 유리한 특징이 여러 세대에 걸쳐 쌓이면 큰 변화가 될 수 있습니다. 그래서 오랜 기간의 관찰과 기록이 중요합니다. 실제로 다윈은 따개비, 지렁이 등도 오랜 시간 들여 연구했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "당시에 몰랐던 것",
+          "body": "다윈은 변이가 어떻게 자손에게 전해지는지 그 원리를 정확히 알지 못했습니다. 멘델의 유전 연구가 널리 알려지고 진화론과 결합된 것은 다윈 이후입니다. 이 카드는 AI가 다윈의 관점을 재구성한 설명이며, 유전학 부분은 현대 지식입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "같은 종 안 개체들 사이의 작은 차이, 즉 변이가 자연선택의 재료가 된다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "다윈이 자연선택의 재료로 본 것은?",
+            "options": [
+              "개체가 살면서 일부러 노력해 얻은 목표",
+              "같은 종 안에서 개체마다 나타나는 작은 차이",
+              "모든 개체가 완전히 똑같은 특징",
+              "환경과 무관하게 정해진 우열 순서"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "자연선택은 개체 사이에 이미 존재하는 변이 가운데 환경에서 더 유리한 것이 다음 세대에 더 많이 전해지는 과정입니다."
+          }
+        },
+        {
+          "text": "한 세대에서는 작은 차이도 여러 세대에 걸쳐 누적되면 큰 변화가 될 수 있어 오랜 관찰이 중요하다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "작은 차이를 오래 관찰해야 하는 이유로 가장 알맞은 것은?",
+            "options": [
+              "작은 차이는 한 세대 만에 반드시 새로운 종을 만들기 때문에",
+              "관찰 기간이 길수록 결론을 미리 정할 수 있기 때문에",
+              "작은 차이도 여러 세대에 걸쳐 쌓이면 큰 변화가 될 수 있기 때문에",
+              "짧게 관찰하면 변이가 전혀 존재하지 않기 때문에"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "진화적 변화는 대개 작은 차이가 긴 시간 동안 누적되어 나타나므로 오랜 관찰과 기록이 필요합니다."
+          }
+        },
+        {
+          "text": "다윈은 유전의 원리를 알지 못했으며, 멘델 유전학과의 결합은 다윈 이후의 일이다.",
+          "sectionOrder": 4,
+          "question": {
+            "prompt": "다윈이 『종의 기원』을 쓸 당시의 지식에 대한 설명으로 옳은 것은?",
+            "options": [
+              "DNA 구조를 이용해 변이를 설명했다",
+              "멘델 유전학을 바탕으로 이론을 세웠다",
+              "변이가 전해지는 원리를 완전히 밝혀냈다",
+              "변이가 어떻게 유전되는지 정확한 원리는 알지 못했다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "다윈은 유전의 구체적 원리를 몰랐습니다. 멘델 유전학과 진화론의 결합은 20세기에 이루어졌습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "On the Origin of Species (종의 기원)",
+          "author": "Charles Darwin",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1859",
+          "note": "변이와 인위선택(제1장) 논의를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "darwin",
+      "topics": [
+        "역사·사회",
+        "과학"
+      ],
+      "title": "과학 이론은 어떤 시대에 읽히는가",
+      "summary": "『종의 기원』이 나온 시대적 맥락과, 이론이 사회적으로 잘못 쓰인 사례를 함께 살펴봅니다.",
+      "caption": "과학 이론은 시대 속에서 읽히고, 때로는 원래 내용과 다르게 오용되기도 합니다.",
+      "publishedHoursAgo": 18,
+      "sections": [
+        {
+          "title": "1859년의 책",
+          "body": "『종의 기원』은 1859년 영국에서 출간되었습니다. 산업화와 제국 확장이 진행되던 시기였고, 지질학은 지구의 역사가 매우 길다는 증거를 쌓아 가고 있었습니다. 이론은 이런 지식의 흐름 속에서 등장했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "혼자만의 발견이 아니었다",
+          "body": "알프레드 러셀 월리스도 비슷한 자연선택 생각에 이르렀고, 1858년 두 사람의 글이 린네 학회에서 함께 발표되었습니다. 과학 이론은 한 사람의 천재성만이 아니라 여러 연구자의 관찰과 교류 속에서 만들어집니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "이론이 오용될 때",
+          "body": "이후 일부 사람들은 자연선택을 사회에 그대로 옮겨 빈부 격차나 차별을 ‘자연스러운 것’으로 정당화하려 했습니다. 이른바 사회 다윈주의입니다. 그러나 생물의 번식에 관한 설명은 사회가 어떻게 되어야 하는지에 대한 근거가 되지 않습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "읽는 사람의 질문",
+          "body": "어떤 과학 이론을 접할 때 ‘이 이론은 무엇을 설명하는가’와 ‘이 이론으로 무엇을 정당화하려 하는가’를 구분해 보세요. 이 카드는 AI가 다윈의 관점을 참고해 재구성한 것이며, 사회 다윈주의 비판은 현대적 해석을 포함합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "자연선택 이론은 1858년 다윈과 월리스의 글이 함께 발표되는 등 여러 연구자의 교류 속에서 등장했다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "자연선택 이론의 등장 과정에 대한 설명으로 옳은 것은?",
+            "options": [
+              "다윈이 아무와도 교류하지 않고 혼자 완성했다",
+              "월리스도 비슷한 생각에 이르렀고 1858년 두 사람의 글이 함께 발표되었다",
+              "20세기 유전학자들이 처음 제안했다",
+              "『종의 기원』 출간 이전에는 아무도 생물의 변화를 생각하지 않았다"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "월리스도 독립적으로 자연선택 생각에 이르렀고, 1858년 린네 학회에서 두 사람의 글이 함께 발표되었습니다."
+          }
+        },
+        {
+          "text": "자연선택을 사회의 차별이나 불평등을 정당화하는 데 쓰는 사회 다윈주의는 이론의 잘못된 적용이다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "사회 다윈주의에 대한 설명으로 가장 알맞은 것은?",
+            "options": [
+              "자연선택 이론에서 논리적으로 반드시 도출되는 결론이다",
+              "다윈이 『종의 기원』에서 직접 제안한 사회 정책이다",
+              "현대 생물학이 공식적으로 지지하는 이론이다",
+              "생물학적 설명을 사회적 차별의 정당화로 잘못 옮긴 것이다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "생물의 생존·번식에 관한 설명은 사회가 어떠해야 하는지에 대한 근거가 되지 않습니다. 사회 다윈주의는 이를 혼동한 오용입니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "On the Origin of Species (종의 기원)",
+          "author": "Charles Darwin",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1859",
+          "note": "이론이 출간된 맥락을 확인할 참고 문헌으로 AI가 제시함"
+        },
+        {
+          "title": "On the Tendency of Species to form Varieties; and on the Perpetuation of Varieties and Species by Natural Means of Selection",
+          "author": "Charles Darwin, Alfred Russel Wallace",
+          "publisher": "Journal of the Proceedings of the Linnean Society",
+          "url": null,
+          "publicationLabel": "1858",
+          "note": "다윈과 월리스의 공동 발표를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "leonardo.davinci",
+      "topics": [
+        "예술"
+      ],
+      "title": "같은 사물을 더 자세히 보는 방법",
+      "summary": "익숙한 사물도 빛·그림자·형태를 나누어 관찰하면 새롭게 보인다는 점을 연습해 봅니다.",
+      "caption": "‘안다’고 생각한 사물을 다시 그리듯이 보는 관찰 연습입니다.",
+      "publishedHoursAgo": 19,
+      "sections": [
+        {
+          "title": "이미 안다는 착각",
+          "body": "컵이나 손처럼 매일 보는 사물을 그려 보라고 하면, 우리는 눈앞의 모습보다 머릿속의 ‘컵 모양’을 그리기 쉽습니다. 자세히 본다는 것은 먼저 이 익숙한 이미지를 내려놓는 일입니다. 이 카드는 AI가 레오나르도의 관점을 참고해 재구성했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "빛과 그림자를 나누어 보기",
+          "body": "레오나르도의 노트에는 빛이 물체에 닿는 방식과 그림자의 단계에 대한 관찰이 많이 남아 있습니다. 밝은 면, 중간 톤, 그림자, 반사광을 나누어 보면 평면처럼 보이던 사물이 입체로 드러납니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "윤곽선 대신 부드러운 경계",
+          "body": "『모나리자』 등에서 볼 수 있는 스푸마토 기법은 윤곽선을 또렷하게 긋지 않고 색과 명암을 부드럽게 이어 경계를 표현합니다. 실제로 우리 눈에 보이는 사물의 가장자리도 선이라기보다 명암의 변화에 가깝습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 관찰 과제",
+          "body": "책상 위 사물 하나를 골라 5분 동안 보면서 가장 밝은 곳과 가장 어두운 곳, 그 사이의 단계를 찾아 적어 보세요. 그림 실력보다 ‘무엇을 보았는가’를 기록하는 것이 목표입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "자세히 관찰하려면 머릿속의 익숙한 이미지보다 실제로 눈앞에 보이는 모습에 주목해야 한다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "익숙한 사물을 그릴 때 흔히 생기는 문제로 게시물이 지적한 것은?",
+            "options": [
+              "눈앞의 모습보다 머릿속에 있는 익숙한 이미지를 그리게 된다",
+              "사물을 너무 오래 관찰하게 된다",
+              "빛과 그림자를 지나치게 세밀하게 나눈다",
+              "도구가 부족해 그릴 수 없다"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "익숙한 사물일수록 실제 모습 대신 머릿속의 일반적인 이미지를 그리기 쉽습니다. 관찰은 이 습관을 내려놓는 데서 시작합니다."
+          }
+        },
+        {
+          "text": "빛과 그림자를 단계별로 나누어 보면 사물의 입체감이 드러나며, 스푸마토는 경계를 명암의 부드러운 변화로 표현한다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "스푸마토 기법에 대한 설명으로 알맞은 것은?",
+            "options": [
+              "굵고 또렷한 윤곽선으로 형태를 강조한다",
+              "밝은 원색만 사용해 평면적으로 칠한다",
+              "윤곽선 대신 색과 명암을 부드럽게 이어 경계를 표현한다",
+              "사진을 그대로 베껴 그리는 방법이다"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "스푸마토는 경계를 선으로 긋지 않고 명암과 색을 안개처럼 부드럽게 이어 표현하는 기법입니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "Trattato della pittura (회화론)",
+          "author": "Leonardo da Vinci (사후 편집)",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1651",
+          "note": "레오나르도의 노트를 사후에 편집한 회화론으로, 빛과 그림자 관찰을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "leonardo.davinci",
+      "topics": [
+        "예술",
+        "과학"
+      ],
+      "title": "스케치는 생각을 어떻게 드러낼까",
+      "summary": "레오나르도의 노트와 스케치가 완성작이 아니라 생각을 시험하는 도구였다는 점을 살펴봅니다.",
+      "caption": "스케치는 답을 보여 주는 그림이 아니라 질문을 따라가는 기록일 수 있습니다.",
+      "publishedHoursAgo": 20,
+      "sections": [
+        {
+          "title": "수천 쪽의 노트",
+          "body": "레오나르도는 평생 많은 노트를 남겼고, 오늘날 수천 쪽이 전해집니다. 그 안에는 그림, 해부, 기계, 물의 흐름, 새의 비행에 관한 스케치와 메모가 뒤섞여 있습니다. 이 카드는 AI가 레오나르도의 관점을 참고해 재구성했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "거울 글씨",
+          "body": "그의 메모 상당수는 오른쪽에서 왼쪽으로 쓴 거울 글씨입니다. 왼손잡이였던 점이 이유로 자주 거론되지만, 정확한 의도는 확실하지 않습니다. 확인된 사실과 추측을 구분해 읽는 것이 중요합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "생각을 시험하는 그림",
+          "body": "같은 형태를 여러 번 고쳐 그리거나, 그림 옆에 질문과 설명을 적는 방식은 스케치가 생각을 밀고 나가는 도구였음을 보여 줍니다. 그림으로 보면 말로는 놓치던 관계가 드러나기도 합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "스케치는 완성된 발명이 아니다",
+          "body": "비행 장치나 기계 스케치는 유명하지만, 그것이 당시 실제로 만들어져 작동했다는 증거는 대부분 없습니다. 스케치는 아이디어와 탐구의 기록으로 읽어야 하며, 완성된 발명으로 단정해서는 안 됩니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "레오나르도의 스케치와 메모는 여러 번 고치고 질문을 적으며 생각을 시험하는 도구였다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "게시물에서 설명한 레오나르도 스케치의 역할로 가장 알맞은 것은?",
+            "options": [
+              "판매하기 위한 완성 작품",
+              "생각을 시험하고 발전시키는 도구",
+              "다른 화가의 작품을 베낀 연습",
+              "글을 쓸 줄 몰라 대신 남긴 기록"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "같은 형태를 고쳐 그리고 옆에 질문과 설명을 적은 방식은 스케치가 생각을 밀고 나가는 도구였음을 보여 줍니다."
+          }
+        },
+        {
+          "text": "기계·비행 장치 스케치는 아이디어의 기록이며, 당시 실제로 만들어져 작동했다고 단정할 수 없다.",
+          "sectionOrder": 4,
+          "question": {
+            "prompt": "레오나르도의 비행 장치 스케치를 읽는 태도로 가장 적절한 것은?",
+            "options": [
+              "당시 실제로 하늘을 난 비행기의 설계도로 본다",
+              "현대 비행기를 그대로 예언한 그림으로 본다",
+              "아무 의미 없는 낙서로 본다",
+              "탐구와 아이디어의 기록으로 보고, 실제 작동은 증거로 따로 확인한다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "스케치가 실제로 제작·작동했다는 증거는 대부분 없으므로 아이디어의 기록으로 읽고 사실 여부는 따로 확인해야 합니다."
+          }
+        },
+        {
+          "text": "거울 글씨는 확인된 특징이지만 그 이유는 확실하지 않으므로 사실과 추측을 구분해야 한다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "레오나르도의 거울 글씨에 대한 설명으로 옳은 것은?",
+            "options": [
+              "비밀을 숨기려 했다는 것이 확실히 증명되었다",
+              "노트에 거울 글씨가 많지만 정확한 이유는 확실하지 않다",
+              "거울 글씨는 노트에 전혀 남아 있지 않다",
+              "당시 모든 사람이 거울 글씨를 썼다"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "거울 글씨는 노트에서 확인되는 특징이지만, 왼손잡이였다는 점 등 여러 추측이 있을 뿐 정확한 의도는 확실하지 않습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Notebooks of Leonardo da Vinci",
+          "author": "Leonardo da Vinci (Jean Paul Richter 편)",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1883",
+          "note": "레오나르도 노트의 스케치와 메모를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "leonardo.davinci",
+      "topics": [
+        "과학",
+        "예술"
+      ],
+      "title": "관찰이 예술과 과학을 잇는 순간",
+      "summary": "레오나르도의 해부 연구와 자연 관찰을 통해 예술과 과학이 같은 ‘보기’에서 출발함을 살펴봅니다.",
+      "caption": "몸을 정확히 그리려는 화가의 질문이 몸의 구조를 탐구하는 질문으로 이어졌습니다.",
+      "publishedHoursAgo": 21,
+      "sections": [
+        {
+          "title": "정확히 그리고 싶다는 질문",
+          "body": "사람의 몸을 실감 나게 그리려면 피부 아래의 근육과 뼈가 어떻게 움직이는지 알아야 합니다. 레오나르도에게 해부 연구는 이런 화가의 질문에서 출발해 몸 자체에 대한 탐구로 넓어졌습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "해부 스케치",
+          "body": "그는 인체 해부에 참여하며 근육, 뼈, 혈관, 심장 등을 자세히 그렸습니다. 이 스케치들은 당시 출판되지 않아 오랫동안 널리 알려지지 않았고, 오늘날에는 관찰의 정밀함으로 높이 평가받습니다. 일부 해석에는 당시 지식의 한계로 인한 오류도 있습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "물과 머리카락",
+          "body": "그의 노트에는 소용돌이치는 물의 흐름과 땋은 머리카락을 비교하는 듯한 그림도 있습니다. 서로 다른 현상에서 비슷한 형태를 찾아내는 눈은 예술가의 감각이자 자연을 탐구하는 사람의 감각이기도 합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 연결",
+          "body": "현대적 해석으로 보면, 관찰 스케치는 과학 수업의 관찰 기록과도 닮았습니다. 잎맥이나 강줄기처럼 닮은 형태를 찾아 그려 보세요. 이 카드는 AI가 레오나르도의 관점을 참고해 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "몸을 정확히 그리려는 화가의 질문이 근육·뼈·장기의 구조를 탐구하는 해부 연구로 이어졌다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "레오나르도의 해부 연구가 시작된 배경으로 가장 알맞은 것은?",
+            "options": [
+              "의사 자격을 얻기 위한 시험 준비",
+              "몸을 실감 나게 그리기 위해 내부 구조를 알고자 한 질문",
+              "해부 교과서를 출판해 판매하려는 계획",
+              "왕실의 명령으로 진행한 의료 사업"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "몸의 움직임을 정확히 그리려면 근육과 뼈를 알아야 했고, 이 화가의 질문이 해부 연구로 넓어졌습니다."
+          }
+        },
+        {
+          "text": "레오나르도의 해부 스케치는 정밀한 관찰로 평가받지만 당시 출판되지 않았고 당대 지식의 한계로 인한 오류도 있다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "레오나르도의 해부 스케치에 대한 설명으로 옳은 것은?",
+            "options": [
+              "출간 즉시 유럽 의학 교과서의 표준이 되었다",
+              "현대 의학 기준으로 오류가 전혀 없다",
+              "직접 관찰하지 않고 상상으로만 그렸다",
+              "정밀한 관찰로 평가받지만 당시 출판되지 않았고 일부 오류도 있다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "해부 스케치는 정밀함으로 높이 평가되지만 생전에 출판되지 않았고, 당시 지식의 한계로 일부 잘못된 해석도 있습니다."
+          }
+        },
+        {
+          "text": "서로 다른 현상에서 닮은 형태를 찾아내는 관찰력은 예술과 자연 탐구를 잇는다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "물의 소용돌이와 머리카락을 함께 관찰한 예가 보여 주는 것은?",
+            "options": [
+              "서로 다른 현상에서 비슷한 형태를 찾는 관찰력",
+              "물과 머리카락이 같은 물질이라는 증명",
+              "그림을 빨리 완성하는 요령",
+              "과학과 예술은 서로 관계가 없다는 생각"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "서로 다른 대상에서 닮은 형태를 찾아내는 눈은 예술적 감각이면서 자연을 탐구하는 태도이기도 합니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Notebooks of Leonardo da Vinci",
+          "author": "Leonardo da Vinci (Jean Paul Richter 편)",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1883",
+          "note": "해부·물 흐름 관찰 메모를 확인할 참고 문헌으로 AI가 제시함"
+        },
+        {
+          "title": "Leonardo da Vinci",
+          "author": "Walter Isaacson",
+          "publisher": "Simon & Schuster",
+          "url": null,
+          "publicationLabel": "2017",
+          "note": "레오나르도의 생애와 예술·과학 탐구를 개관할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "sejong",
+      "topics": [
+        "역사·사회"
+      ],
+      "title": "글을 읽을 수 있다는 것은 무엇을 바꿀까",
+      "summary": "훈민정음이 만들어진 배경을 통해 글을 읽고 쓸 수 있다는 것이 사람들에게 어떤 의미인지 살펴봅니다.",
+      "caption": "한자를 배우기 어려웠던 시대, 쉬운 글자가 무엇을 바꾸려 했는지 생각해 봅니다.",
+      "publishedHoursAgo": 22,
+      "sections": [
+        {
+          "title": "글을 쓰기 어려웠던 시대",
+          "body": "조선 초기에는 주로 한자로 글을 썼습니다. 한자는 배우는 데 오랜 시간이 들어, 많은 백성이 자기 생각이나 억울한 사정을 글로 적기 어려웠습니다. 우리말과 글이 서로 맞지 않는 문제도 있었습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "1443년과 1446년",
+          "body": "훈민정음은 1443년에 만들어지고 1446년에 반포되었습니다. 『훈민정음』 서문의 뜻을 현대어로 풀면, 백성이 말하고 싶은 것이 있어도 글로 펴지 못하는 일이 많아 이를 딱하게 여겨 새 글자를 만들었다는 내용입니다. 위 문장은 원문이 아닌 현대어 풀이입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "읽고 쓰면 달라지는 것",
+          "body": "글을 읽을 수 있으면 남이 전해 주는 말에만 의존하지 않고 직접 정보를 확인할 수 있습니다. 글을 쓸 수 있으면 자기 사정을 기록하고 알릴 수 있습니다. 문자는 지식과 목소리에 다가가는 문을 넓히는 도구입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 질문",
+          "body": "현대적 해석으로 보면, 오늘날에도 정보를 읽고 판단하는 능력의 차이가 있습니다. 내가 쉽게 접근하지 못하는 지식은 무엇인지 떠올려 보세요. 이 카드는 AI가 세종의 관점을 참고해 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "훈민정음은 1443년에 만들어지고 1446년에 반포되었으며, 백성이 뜻을 글로 펴기 어려운 현실이 창제 배경으로 제시된다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "훈민정음에 대한 설명으로 옳은 것은?",
+            "options": [
+              "1446년에 만들어지고 1500년에 반포되었다",
+              "1443년에 만들어지고 1446년에 반포되었다",
+              "한자를 더 어렵게 만들기 위해 만들어졌다",
+              "외국과의 무역 문서를 위해서만 만들어졌다"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "훈민정음은 1443년에 창제되고 1446년에 반포되었습니다. 서문은 백성이 뜻을 글로 펴지 못하는 현실을 배경으로 제시합니다."
+          }
+        },
+        {
+          "text": "글을 읽고 쓸 수 있으면 직접 정보를 확인하고 자기 사정을 기록·전달할 수 있어 지식과 목소리에 다가가는 문이 넓어진다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "글을 읽고 쓸 수 있게 될 때 생기는 변화로 가장 거리가 먼 것은?",
+            "options": [
+              "직접 정보를 읽고 확인할 수 있다",
+              "자기 사정을 기록해 알릴 수 있다",
+              "남이 전해 주는 말에만 의존하지 않아도 된다",
+              "모든 지식을 저절로 정확히 이해하게 된다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "문자는 지식에 다가가는 문을 넓히지만, 읽고 쓸 수 있다고 모든 지식을 저절로 정확히 이해하게 되는 것은 아닙니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "훈민정음 (해례본)",
+          "author": "세종, 집현전 학사(정인지 등)",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1446",
+          "note": "서문과 창제 배경을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "sejong",
+      "topics": [
+        "문학",
+        "역사·사회"
+      ],
+      "title": "소리와 글자의 관계를 관찰하기",
+      "summary": "훈민정음 글자가 말소리를 내는 발음 기관과 천·지·인을 본떠 만들어진 원리를 살펴봅니다.",
+      "caption": "글자 모양 안에 소리를 관찰한 흔적이 담겨 있습니다. 직접 소리를 내며 확인해 봅시다.",
+      "publishedHoursAgo": 23,
+      "sections": [
+        {
+          "title": "소리를 관찰한 글자",
+          "body": "『훈민정음 해례본』은 글자를 만든 원리를 설명합니다. 자음의 기본 글자는 소리를 낼 때 발음 기관의 모양을 본떴다고 합니다. 글자의 모양과 소리가 서로 관련되도록 설계한 것입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "다섯 기본 자음",
+          "body": "ㄱ은 혀뿌리가 목구멍을 막는 모양, ㄴ은 혀끝이 윗잇몸에 닿는 모양, ㅁ은 입의 모양, ㅅ은 이의 모양, ㅇ은 목구멍의 모양을 본떴다고 설명됩니다. 여기에 획을 더해 ㅋ, ㄷ, ㅌ처럼 소리가 더 센 글자를 만들었습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "하늘·땅·사람의 모음",
+          "body": "모음의 기본 글자는 하늘(·), 땅(ㅡ), 사람(ㅣ)을 본떴습니다. 이 세 글자를 조합해 ㅏ, ㅗ 같은 여러 모음을 만들었습니다. 적은 기본 글자로 많은 소리를 체계적으로 나타낸 것입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "직접 소리 내 보기",
+          "body": "‘가’, ‘나’, ‘마’를 천천히 소리 내며 혀와 입술의 위치를 느껴 보세요. 글자 모양과 비슷한가요? 이 카드는 AI가 세종의 관점을 참고해 재구성했으며, 글자 창제는 집현전 학자들과의 공동 작업 맥락에서 이루어졌습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "훈민정음의 기본 자음 ㄱ·ㄴ·ㅁ·ㅅ·ㅇ은 소리를 낼 때의 발음 기관 모양을 본떴고, 획을 더해 센 소리 글자를 만들었다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "『훈민정음 해례본』이 설명하는 자음 기본 글자의 제자 원리는?",
+            "options": [
+              "중국 한자의 획을 줄여서 만들었다",
+              "동물의 모양을 본떠 만들었다",
+              "소리를 낼 때 발음 기관의 모양을 본떠 만들었다",
+              "무작위로 모양을 정했다"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "기본 자음은 혀, 입, 이, 목구멍 등 발음 기관의 모양을 본떴고, 여기에 획을 더해 다른 글자를 만들었습니다."
+          }
+        },
+        {
+          "text": "모음의 기본 글자는 하늘(·)·땅(ㅡ)·사람(ㅣ)을 본떴고 이를 조합해 여러 모음을 만들었다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "모음 기본 글자 세 개가 본뜬 것으로 옳은 것은?",
+            "options": [
+              "해·달·별",
+              "하늘·땅·사람",
+              "물·불·나무",
+              "산·강·바다"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "모음의 기본 글자 ·, ㅡ, ㅣ는 각각 하늘, 땅, 사람을 본떴습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "훈민정음 (해례본)",
+          "author": "세종, 집현전 학사(정인지 등)",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1446",
+          "note": "제자해의 글자 창제 원리를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "sejong",
+      "topics": [
+        "역사·사회"
+      ],
+      "title": "쉽게 설명하는 일도 지식의 일부다",
+      "summary": "새 글자를 만드는 것만큼 그 원리와 쓰임을 쉽게 풀어 설명한 일도 중요했다는 점을 살펴봅니다.",
+      "caption": "지식은 만드는 것과 함께 전하는 방식까지 포함합니다.",
+      "publishedHoursAgo": 24,
+      "sections": [
+        {
+          "title": "글자만 만들면 끝일까",
+          "body": "새 글자를 만들어도 사람들이 그 원리와 쓰는 법을 알지 못하면 널리 쓰이기 어렵습니다. 그래서 훈민정음은 글자와 함께 그것을 풀어 설명한 해설서가 만들어졌습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "해례본이라는 설명서",
+          "body": "『훈민정음 해례본』(1446)은 글자를 만든 원리와 쓰는 방법, 보기 낱말을 담은 책입니다. 정인지를 비롯한 집현전 학자들이 해설을 지었습니다. 새 지식을 한 사람의 업적으로만 보기보다 여러 사람의 협업으로 보는 것이 정확합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "쓰면서 익히게 하기",
+          "body": "훈민정음 반포 뒤에는 『용비어천가』, 『석보상절』처럼 새 글자로 쓴 책이 나왔습니다. 실제 글 속에서 쓰임을 보여 주는 것도 지식을 전하는 방법이었습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 연습",
+          "body": "최근 배운 개념 하나를 초등학생에게 설명한다고 생각하고 세 문장으로 써 보세요. 쉽게 설명하려면 무엇을 정확히 이해하고 있어야 하는지 드러납니다. 이 연습은 현대적 적용이며, 카드는 AI가 세종의 관점을 참고해 재구성했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "『훈민정음 해례본』은 글자의 원리와 쓰는 법을 설명한 해설서로, 집현전 학자들의 공동 작업이 담겨 있다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "『훈민정음 해례본』에 대한 설명으로 가장 알맞은 것은?",
+            "options": [
+              "글자의 원리와 쓰는 법을 풀어 설명한 해설서",
+              "훈민정음을 금지하기 위해 만든 법전",
+              "외국어 사전",
+              "한 사람이 혼자 쓴 개인 일기"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "해례본은 글자를 만든 원리와 사용법, 보기를 담은 해설서이며 정인지 등 집현전 학자들이 해설을 지었습니다."
+          }
+        },
+        {
+          "text": "새 글자로 쓴 책을 펴내 실제 쓰임을 보여 주는 것도 지식을 전하는 방법이었다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "훈민정음 반포 뒤 새 글자로 쓴 책을 펴낸 일의 의미로 가장 알맞은 것은?",
+            "options": [
+              "새 글자를 사용하지 못하게 하려는 조치",
+              "한자 교육을 완전히 없애기 위한 정책",
+              "실제 글 속에서 새 글자의 쓰임을 보여 주는 일",
+              "책 판매로 수익을 올리기 위한 사업"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "『용비어천가』, 『석보상절』 같은 책은 새 글자가 실제로 어떻게 쓰이는지 보여 주며 지식을 전하는 역할을 했습니다."
+          }
+        },
+        {
+          "text": "어떤 개념을 쉽게 설명하려면 그 개념을 정확히 이해해야 하므로, 쉬운 설명도 지식의 일부다.",
+          "sectionOrder": 4,
+          "question": {
+            "prompt": "‘쉽게 설명하는 일도 지식의 일부’라는 말의 뜻에 가장 가까운 것은?",
+            "options": [
+              "어려운 용어를 많이 쓸수록 더 깊이 아는 것이다",
+              "쉽게 설명하려면 개념을 정확히 이해해야 한다",
+              "설명은 전문가가 아닌 사람의 몫이다",
+              "쉬운 설명은 지식을 단순히 줄이는 일일 뿐이다"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "쉽게 설명하려면 핵심을 정확히 알아야 하므로, 설명하는 능력 자체가 이해의 일부가 됩니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "훈민정음 (해례본)",
+          "author": "세종, 집현전 학사(정인지 등)",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1446",
+          "note": "해례의 구성과 해설 작업을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "adam.smith",
+      "topics": [
+        "경제"
+      ],
+      "title": "한 가지 일을 나누어 하면 무엇이 달라질까",
+      "summary": "『국부론』의 핀 공장 예시로 분업이 생산성을 높이는 이유와 그 한계를 살펴봅니다.",
+      "caption": "일을 나누면 더 많이 만들 수 있습니다. 그런데 일하는 사람에게는 어떤 영향이 있을까요?",
+      "publishedHoursAgo": 25,
+      "sections": [
+        {
+          "title": "핀 공장 이야기",
+          "body": "애덤 스미스는 『국부론』(1776) 제1권 제1장에서 핀 만드는 일을 예로 듭니다. 한 사람이 모든 과정을 혼자 하면 하루에 몇 개 만들기 어렵지만, 철사 펴기·자르기·뾰족하게 갈기 같은 공정을 여럿이 나누면 생산량이 크게 늘어난다고 설명합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "왜 생산성이 높아질까",
+          "body": "스미스는 세 가지 이유를 듭니다. 한 가지 일을 반복하며 숙련도가 높아지고, 작업을 바꾸며 낭비하는 시간이 줄고, 단순해진 작업에 맞는 도구와 기계를 고안하기 쉬워진다는 것입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "분업의 그늘",
+          "body": "스미스는 분업의 장점만 말하지 않았습니다. 『국부론』 뒷부분에서 단순한 작업만 평생 반복하면 사람의 이해력과 판단력이 둔해질 수 있다고 우려하며, 교육의 필요성을 언급합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 생각거리",
+          "body": "조별 과제에서 역할을 나누면 무엇이 빨라지고, 무엇을 놓치게 되나요? 이 질문은 현대적 적용이며, 이 카드는 AI가 애덤 스미스의 관점을 참고해 재구성한 설명입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "스미스는 핀 공장 예시로 공정을 나누어 맡으면 생산량이 크게 늘어난다고 설명했다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "애덤 스미스가 『국부론』에서 분업을 설명하기 위해 든 대표적인 예는?",
+            "options": [
+              "핀 공장",
+              "자동차 조립 공장",
+              "은행 창구",
+              "컴퓨터 공장"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "스미스는 『국부론』 제1권 제1장에서 핀 만드는 공정을 나누는 예로 분업의 효과를 설명했습니다."
+          }
+        },
+        {
+          "text": "분업은 숙련도 향상, 작업 전환 시간 감소, 도구·기계 고안의 용이함 때문에 생산성을 높인다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "스미스가 제시한 분업의 생산성 향상 이유가 아닌 것은?",
+            "options": [
+              "반복을 통한 숙련도 향상",
+              "작업을 바꾸며 낭비하는 시간의 감소",
+              "모든 노동자의 임금이 자동으로 같아짐",
+              "단순한 작업에 맞는 기계 고안이 쉬워짐"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "스미스가 든 이유는 숙련, 시간 절약, 기계 고안입니다. 임금이 자동으로 같아진다는 내용은 없습니다."
+          }
+        },
+        {
+          "text": "스미스는 단순 작업의 반복이 사람의 판단력을 둔하게 할 수 있다고 우려하며 교육의 필요성을 말했다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "분업에 대한 스미스의 태도로 가장 알맞은 것은?",
+            "options": [
+              "분업에는 어떤 단점도 없다고 보았다",
+              "분업을 금지해야 한다고 주장했다",
+              "분업은 생산성과 관계가 없다고 보았다",
+              "생산성을 높이지만 단순 반복의 부작용도 우려했다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "스미스는 분업의 생산성을 강조하면서도, 단순 작업 반복이 노동자의 이해력을 둔하게 할 수 있다고 우려했습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "An Inquiry into the Nature and Causes of the Wealth of Nations (국부론)",
+          "author": "Adam Smith",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1776",
+          "note": "제1권 제1장의 핀 공장 예시와 제5권의 교육 논의를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "adam.smith",
+      "topics": [
+        "경제"
+      ],
+      "title": "교환이 이루어지려면 무엇이 필요할까",
+      "summary": "정육점·양조장·빵집 예시를 통해 교환이 서로의 필요와 이익을 연결하는 방식을 살펴봅니다.",
+      "caption": "우리가 저녁을 먹을 수 있는 것은 누군가의 자비 때문만이 아니라는 스미스의 설명을 살펴봅니다.",
+      "publishedHoursAgo": 26,
+      "sections": [
+        {
+          "title": "저녁 식탁의 질문",
+          "body": "스미스는 『국부론』 제1권 제2장에서, 우리가 저녁을 먹을 수 있는 것은 정육점 주인·양조장 주인·빵집 주인의 자비심 덕분이라기보다 그들이 자기 이익을 생각하기 때문이라고 설명합니다. 이 문장은 원문이 아닌 요약입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "상대의 필요에 말을 걸기",
+          "body": "교환은 내가 원하는 것을 달라고 부탁하는 것이 아니라, 상대에게도 이익이 되는 제안을 하는 일입니다. 서로가 각자 더 낫다고 느낄 때 자발적인 교환이 이루어집니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "교환을 받쳐 주는 조건",
+          "body": "교환이 이어지려면 약속을 지킨다는 신뢰, 무엇이 누구의 것인지에 대한 규칙, 그리고 비교 가능한 가치의 기준이 필요합니다. 화폐는 물건과 물건을 직접 바꾸는 불편을 줄여 줍니다. 스미스도 화폐의 등장을 교환의 편의와 연결해 설명했습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "조건과 한계",
+          "body": "자기 이익을 따르는 교환이 언제나 모두에게 좋은 결과를 내는 것은 아닙니다. 정보가 한쪽에만 있거나 힘의 차이가 크면 공정하지 않은 거래가 될 수 있습니다. 이 카드는 AI가 애덤 스미스의 관점을 참고해 재구성했으며, 개인의 재무 판단을 대신하지 않습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "스미스는 정육점·양조장·빵집 예시로 교환이 자비심보다 서로의 이익에 호소하며 이루어진다고 설명했다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "스미스의 정육점·양조장·빵집 예시가 강조하는 것은?",
+            "options": [
+              "상인들은 모두 자비로운 사람이어야 한다",
+              "교환은 서로의 이익에 호소하며 이루어진다",
+              "정부가 모든 음식을 나누어 주어야 한다",
+              "빵과 고기는 교환할 수 없다"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "스미스는 우리가 식사를 얻는 것이 상인의 자비보다 그들의 자기 이익을 통해서라고 설명하며, 교환이 서로의 이익을 연결함을 보여 줍니다."
+          }
+        },
+        {
+          "text": "교환이 이어지려면 신뢰, 소유에 관한 규칙, 비교 가능한 가치 기준이 필요하며 화폐는 교환의 불편을 줄인다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "교환을 받쳐 주는 조건으로 게시물에서 설명하지 않은 것은?",
+            "options": [
+              "약속을 지킨다는 신뢰",
+              "무엇이 누구의 것인지에 대한 규칙",
+              "비교 가능한 가치의 기준",
+              "모든 사람이 같은 물건을 원하는 상태"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "교환은 오히려 서로 원하는 것이 다를 때 일어납니다. 게시물은 신뢰, 소유 규칙, 가치 기준을 조건으로 들었습니다."
+          }
+        },
+        {
+          "text": "정보나 힘의 차이가 크면 자기 이익에 따른 교환도 공정하지 않을 수 있다.",
+          "sectionOrder": 4,
+          "question": {
+            "prompt": "자기 이익에 따른 교환의 한계로 가장 알맞은 것은?",
+            "options": [
+              "정보가 한쪽에만 있으면 공정하지 않은 거래가 될 수 있다",
+              "교환은 언제나 모두에게 똑같은 이익을 준다",
+              "화폐가 있으면 교환이 불가능하다",
+              "자기 이익을 생각하면 교환이 절대 일어나지 않는다"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "정보 비대칭이나 힘의 차이가 크면 자발적인 교환이라도 한쪽에 불리할 수 있습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "An Inquiry into the Nature and Causes of the Wealth of Nations (국부론)",
+          "author": "Adam Smith",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1776",
+          "note": "제1권 제2장의 교환 성향과 제4장의 화폐 논의를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "adam.smith",
+      "topics": [
+        "철학",
+        "경제"
+      ],
+      "title": "경제적 선택에도 도덕이 필요할까",
+      "summary": "『도덕감정론』의 공감과 공정한 관찰자 개념으로 경제와 도덕의 관계를 살펴봅니다.",
+      "caption": "‘보이지 않는 손’만큼 덜 알려진 스미스의 또 다른 책을 함께 읽어 봅니다.",
+      "publishedHoursAgo": 27,
+      "sections": [
+        {
+          "title": "두 권의 책",
+          "body": "애덤 스미스는 『국부론』(1776)보다 앞서 『도덕감정론』(1759)을 썼습니다. 그는 경제학자이기 이전에 도덕철학 교수였습니다. 시장을 이해하려면 사람들이 서로를 어떻게 판단하는지도 함께 보아야 한다는 문제의식이 있었습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "공감",
+          "body": "『도덕감정론』은 사람이 다른 사람의 처지를 상상하며 그 감정을 함께 느끼려는 능력, 즉 공감(sympathy)에서 도덕 판단을 설명합니다. 자기 이익을 생각하는 사람도 타인의 기쁨과 고통에 무관심하지 않다는 것입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "공정한 관찰자",
+          "body": "스미스는 우리가 자기 행동을 판단할 때 마음속의 ‘공정한 관찰자’의 눈으로 본다고 설명합니다. 내 이익에서 한 걸음 물러나, 사정을 아는 공정한 제3자라면 이 행동을 어떻게 볼지 묻는 것입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "경제적 선택에 적용하기",
+          "body": "현대적 해석으로, 물건을 팔거나 살 때 ‘공정한 관찰자라면 이 거래를 공정하다고 볼까?’를 물어볼 수 있습니다. 이 카드는 AI가 애덤 스미스의 관점을 참고해 재구성했으며, 특정 투자나 재무 결정을 권하지 않습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "스미스는 『국부론』보다 앞서 『도덕감정론』(1759)을 썼으며, 공감을 도덕 판단의 바탕으로 설명했다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "『도덕감정론』에서 도덕 판단의 바탕으로 설명한 것은?",
+            "options": [
+              "가격 경쟁",
+              "법률 조항",
+              "다른 사람의 처지를 상상하며 감정을 함께 느끼는 공감",
+              "신분에 따른 의무"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "스미스는 타인의 처지를 상상하며 감정을 함께 느끼려는 공감에서 도덕 판단을 설명했습니다."
+          }
+        },
+        {
+          "text": "공정한 관찰자는 자기 이익에서 물러나 공정한 제3자의 눈으로 자신의 행동을 판단하게 하는 기준이다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "스미스가 말한 ‘공정한 관찰자’에 가장 가까운 것은?",
+            "options": [
+              "거래를 감시하는 정부 공무원",
+              "사정을 아는 공정한 제3자의 시선으로 자신을 판단하는 마음속 기준",
+              "가장 많은 이익을 내는 사람",
+              "시장 가격을 정하는 상인 조합"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "공정한 관찰자는 실제 감시자가 아니라, 자기 이익에서 한 걸음 물러나 공정한 제3자처럼 자신을 판단하게 하는 마음속 기준입니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Theory of Moral Sentiments (도덕감정론)",
+          "author": "Adam Smith",
+          "publisher": null,
+          "url": null,
+          "publicationLabel": "1759",
+          "note": "공감과 공정한 관찰자 개념을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "yun.dongju",
+      "topics": [
+        "문학"
+      ],
+      "title": "시의 화자와 작가는 같은 사람일까",
+      "summary": "시 속에서 말하는 ‘나’인 화자와 시를 쓴 작가를 구분해 읽는 방법을 살펴봅니다.",
+      "caption": "시의 ‘나’를 곧바로 시인 자신으로 읽지 않을 때 더 많은 해석이 열립니다.",
+      "publishedHoursAgo": 28,
+      "sections": [
+        {
+          "title": "시 속의 ‘나’",
+          "body": "시에는 말하는 목소리가 있습니다. 이 목소리를 ‘화자’ 또는 ‘시적 자아’라고 부릅니다. 화자는 작가가 만든 인물이자 목소리이므로, 시 속 ‘나’가 곧 작가 자신이라고 바로 단정하지 않는 것이 기본 읽기 방법입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "「서시」의 첫 구절",
+          "body": "“죽는 날까지 하늘을 우러러 / 한 점 부끄럼이 없기를”",
+          "citationType": "DIRECT_QUOTE",
+          "quoteAttribution": "윤동주, 「서시」, 『하늘과 바람과 별과 시』 (1948)"
+        },
+        {
+          "title": "두 가지 읽기",
+          "body": "이 구절의 화자는 자신을 엄격하게 돌아보며 다짐하는 목소리입니다. 시인의 삶과 시대를 함께 알고 읽으면 새로운 의미가 보이기도 하지만, 그것은 여러 해석 가운데 하나입니다. 작품 속 목소리만으로 먼저 읽고, 맥락은 나중에 겹쳐 보는 방법도 있습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 연습",
+          "body": "좋아하는 시 한 편을 골라 ‘화자는 어떤 상황에서, 누구에게, 어떤 태도로 말하는가’를 한 문장으로 적어 보세요. 이 카드는 AI가 윤동주의 관점을 참고해 재구성한 설명이며, 인용 구절 외의 문장은 시인의 글이 아닙니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "화자(시적 자아)는 시 속에서 말하는 목소리로, 작가 자신과 자동으로 같은 사람이라고 단정하지 않는다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "시의 화자에 대한 설명으로 가장 알맞은 것은?",
+            "options": [
+              "화자는 언제나 시를 쓴 작가 자신이다",
+              "화자는 시를 읽는 독자를 가리킨다",
+              "화자는 시 속에서 말하는 목소리로, 작가와 바로 동일시하지 않는다",
+              "화자는 시의 제목을 뜻한다"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "화자는 작품 속에서 말하는 목소리입니다. 작가의 삶과 겹칠 수 있지만 처음부터 같은 사람으로 단정하지 않는 것이 기본적인 읽기입니다."
+          }
+        },
+        {
+          "text": "작가의 삶과 시대 맥락을 겹쳐 읽는 것은 가능한 해석 가운데 하나이며, 작품 속 목소리를 먼저 살필 수 있다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "시인의 삶과 시대를 알고 시를 읽는 것에 대한 설명으로 가장 적절한 것은?",
+            "options": [
+              "여러 해석 가운데 하나로, 작품 속 목소리와 함께 살펴볼 수 있다",
+              "시인의 삶을 모르면 시를 전혀 읽을 수 없다",
+              "시인의 삶을 아는 순간 해석은 하나로 정해진다",
+              "시대 맥락은 시 해석과 아무 관계가 없다"
+            ],
+            "correctOptionOrder": 1,
+            "explanation": "작가의 삶과 시대는 해석을 풍부하게 하지만 유일한 정답을 정해 주지는 않습니다. 작품 속 목소리를 먼저 읽고 맥락을 겹쳐 볼 수 있습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "하늘과 바람과 별과 시",
+          "author": "윤동주",
+          "publisher": "정음사",
+          "url": null,
+          "publicationLabel": "1948",
+          "note": "「서시」 구절을 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "yun.dongju",
+      "topics": [
+        "심리",
+        "문학"
+      ],
+      "title": "부끄러움이라는 감정을 글로 읽기",
+      "summary": "윤동주의 시에 자주 나타나는 부끄러움을 자기 성찰의 언어로 읽는 방법을 살펴봅니다.",
+      "caption": "부끄러움은 나를 작게 만드는 감정이기도 하지만, 나를 돌아보게 하는 감정이기도 합니다.",
+      "publishedHoursAgo": 29,
+      "sections": [
+        {
+          "title": "자주 등장하는 감정",
+          "body": "윤동주의 시에는 부끄러움이 여러 번 등장합니다. 「서시」, 「참회록」, 「쉽게 씌어진 시」 같은 작품에서 화자는 자신을 돌아보며 부끄러움을 말합니다. 이 감정이 시에서 어떤 역할을 하는지 읽어 볼 수 있습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "부끄러움과 성찰",
+          "body": "시 속 부끄러움은 남에게 들킨 실수에 대한 창피함보다, 스스로 세운 기준에 비추어 자신을 바라보는 마음에 가깝게 읽힙니다. 이렇게 읽으면 부끄러움은 화자가 더 나은 자신을 향해 다짐하게 하는 출발점이 됩니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "읽기와 진단은 다르다",
+          "body": "이것은 시의 표현을 읽는 하나의 해석입니다. 시에 나타난 감정만으로 시인이나 독자의 마음 상태를 진단할 수는 없습니다. 감정이 오래 힘들게 느껴진다면 시 읽기가 아니라 믿을 만한 사람이나 전문가와 이야기하는 것이 필요합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 글쓰기",
+          "body": "최근 부끄러웠던 순간 하나를 떠올려 ‘그때 나는 어떤 기준으로 나를 보았나’를 한두 문장으로 적어 보세요. 이 카드는 AI가 윤동주의 관점을 참고해 재구성한 설명이며, 시인의 실제 말이 아닙니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "윤동주의 시에서 부끄러움은 스스로 세운 기준에 비추어 자신을 돌아보는 성찰의 감정으로 읽을 수 있다.",
+          "sectionOrder": 2,
+          "question": {
+            "prompt": "게시물이 제시한 윤동주 시 속 부끄러움의 해석으로 가장 알맞은 것은?",
+            "options": [
+              "남에게 실수를 들켰을 때의 창피함일 뿐이다",
+              "다른 사람을 비난하기 위한 감정이다",
+              "아무 의미 없이 반복되는 표현이다",
+              "스스로 세운 기준에 비추어 자신을 돌아보는 성찰의 감정이다"
+            ],
+            "correctOptionOrder": 4,
+            "explanation": "시 속 부끄러움은 자기 기준에 비추어 자신을 바라보는 마음으로 읽히며, 다짐과 성찰의 출발점이 됩니다."
+          }
+        },
+        {
+          "text": "시에 나타난 감정을 읽는 것은 해석이며, 이를 근거로 시인이나 독자의 마음 상태를 진단할 수 없다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "시의 감정을 읽을 때 지켜야 할 태도로 가장 알맞은 것은?",
+            "options": [
+              "시에 나타난 감정으로 시인의 심리 상태를 진단한다",
+              "감정 표현은 해석의 하나로 읽고, 진단과 구분한다",
+              "슬픈 시를 읽는 독자는 모두 우울하다고 판단한다",
+              "감정이 나오는 시는 읽지 않는다"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "시의 감정 읽기는 해석일 뿐이며, 그것만으로 사람의 마음 상태를 진단할 수 없습니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "하늘과 바람과 별과 시",
+          "author": "윤동주",
+          "publisher": "정음사",
+          "url": null,
+          "publicationLabel": "1948",
+          "note": "「서시」·「참회록」·「쉽게 씌어진 시」를 확인할 참고 문헌으로 AI가 제시함"
+        }
+      ]
+    },
+    {
+      "personaUsername": "yun.dongju",
+      "topics": [
+        "예술",
+        "문학"
+      ],
+      "title": "일상의 장면을 시의 이미지로 바라보기",
+      "summary": "하늘·바람·별처럼 일상의 사물이 시 속 이미지가 되어 감정과 생각을 전하는 방식을 살펴봅니다.",
+      "caption": "늘 보던 장면도 한 번 멈추어 보면 시의 이미지가 됩니다.",
+      "publishedHoursAgo": 30,
+      "sections": [
+        {
+          "title": "이미지란 무엇일까",
+          "body": "시의 이미지는 독자의 마음속에 장면이나 감각을 떠올리게 하는 표현입니다. 설명 대신 보이고 들리고 느껴지는 것을 제시해, 감정이나 생각을 간접적으로 전합니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "하늘, 바람, 별",
+          "body": "윤동주의 유고 시집 제목 『하늘과 바람과 별과 시』에는 누구나 매일 볼 수 있는 자연이 담겨 있습니다. 「별 헤는 밤」에서는 별을 하나씩 세는 장면이 그리운 이름과 기억을 불러오는 이미지로 쓰입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "평범한 장면을 멈추어 보기",
+          "body": "창밖의 바람, 밤하늘, 우물에 비친 얼굴처럼 평범한 장면도 오래 바라보면 마음과 연결됩니다. 「자화상」에서 우물 속 얼굴을 들여다보는 장면은 자신을 바라보는 마음을 보여 주는 이미지로 읽을 수 있습니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        },
+        {
+          "title": "오늘의 관찰",
+          "body": "오늘 본 장면 하나를 골라 감정 단어 없이 보이는 것만으로 세 줄을 써 보세요. 그 장면이 어떤 마음을 전하는지 읽는 사람에게 맡겨 보는 연습입니다. 이 카드는 AI가 윤동주의 관점을 참고해 재구성했으며, 작품 해석은 가능한 독법 중 하나입니다.",
+          "citationType": "RECONSTRUCTION",
+          "quoteAttribution": null
+        }
+      ],
+      "keyPoints": [
+        {
+          "text": "시의 이미지는 장면이나 감각을 떠올리게 하는 표현으로, 감정과 생각을 간접적으로 전한다.",
+          "sectionOrder": 1,
+          "question": {
+            "prompt": "시에서 ‘이미지’의 역할로 가장 알맞은 것은?",
+            "options": [
+              "감정을 직접 이름 붙여 설명하는 것",
+              "장면이나 감각을 떠올리게 해 감정과 생각을 간접적으로 전하는 것",
+              "시의 글자 수를 맞추는 것",
+              "작가의 생애를 연대순으로 기록하는 것"
+            ],
+            "correctOptionOrder": 2,
+            "explanation": "이미지는 보이고 들리고 느껴지는 것을 제시해, 감정을 직접 말하지 않고도 전하는 표현입니다."
+          }
+        },
+        {
+          "text": "「별 헤는 밤」의 별 세기, 「자화상」의 우물 속 얼굴처럼 일상의 장면이 기억과 자기 성찰을 전하는 이미지가 된다.",
+          "sectionOrder": 3,
+          "question": {
+            "prompt": "윤동주 「자화상」의 우물 속 얼굴을 들여다보는 장면을 읽는 방법으로 가장 알맞은 것은?",
+            "options": [
+              "우물 청소 방법을 알려 주는 장면",
+              "실제 사건을 기록한 신문 기사",
+              "자신을 바라보는 마음을 보여 주는 이미지",
+              "날씨 변화를 설명하는 과학적 관찰"
+            ],
+            "correctOptionOrder": 3,
+            "explanation": "우물 속 얼굴을 들여다보는 장면은 자신을 돌아보는 마음을 드러내는 이미지로 읽을 수 있습니다. 이는 가능한 해석 가운데 하나입니다."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "title": "하늘과 바람과 별과 시",
+          "author": "윤동주",
+          "publisher": "정음사",
+          "url": null,
+          "publicationLabel": "1948",
+          "note": "「별 헤는 밤」·「자화상」을 확인할 참고 문헌으로 AI가 제시함"
         }
       ]
     }
