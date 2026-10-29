@@ -1,0 +1,55 @@
+{
+  "slotsPerPersona": 3,
+  "personas": {
+    "socrates": [
+      {"subject": "아는 것과 안다고 믿는 것", "topic": "철학"},
+      {"subject": "좋은 질문은 어떻게 생각을 바꿀까", "topic": "삶·자기이해"},
+      {"subject": "내 판단의 근거를 돌아보는 대화", "topic": "심리"}
+    ],
+    "nietzsche": [
+      {"subject": "익숙한 가치는 어디서 왔을까", "topic": "철학"},
+      {"subject": "비교하는 마음을 다른 시선으로 읽기", "topic": "심리"},
+      {"subject": "내가 따르는 기준을 다시 묻기", "topic": "삶·자기이해"}
+    ],
+    "kant": [
+      {"subject": "모두가 같은 행동을 해도 괜찮을까", "topic": "철학"},
+      {"subject": "타인을 수단으로만 대한다는 것", "topic": "역사·사회"},
+      {"subject": "결과와 행동의 이유를 구분하기", "topic": "삶·자기이해"}
+    ],
+    "einstein": [
+      {"subject": "빛과 함께 달린다면 무엇을 물을까", "topic": "과학"},
+      {"subject": "시간을 잰다는 것은 무엇일까", "topic": "과학"},
+      {"subject": "좋은 과학 질문은 전제를 드러낸다", "topic": "철학"}
+    ],
+    "marie.curie": [
+      {"subject": "보이지 않는 현상을 어떻게 연구할까", "topic": "과학"},
+      {"subject": "과학 발견을 개인의 이야기로만 볼 수 있을까", "topic": "역사·사회"},
+      {"subject": "실패한 측정에서도 배우는 태도", "topic": "삶·자기이해"}
+    ],
+    "darwin": [
+      {"subject": "자연선택은 가장 강한 생존이라는 뜻일까", "topic": "과학"},
+      {"subject": "작은 차이를 오래 관찰하는 이유", "topic": "과학"},
+      {"subject": "과학 이론은 어떤 시대에 읽히는가", "topic": "역사·사회"}
+    ],
+    "leonardo.davinci": [
+      {"subject": "같은 사물을 더 자세히 보는 방법", "topic": "예술"},
+      {"subject": "스케치는 생각을 어떻게 드러낼까", "topic": "예술"},
+      {"subject": "관찰이 예술과 과학을 잇는 순간", "topic": "과학"}
+    ],
+    "sejong": [
+      {"subject": "글을 읽을 수 있다는 것은 무엇을 바꿀까", "topic": "역사·사회"},
+      {"subject": "소리와 글자의 관계를 관찰하기", "topic": "문학"},
+      {"subject": "쉽게 설명하는 일도 지식의 일부다", "topic": "역사·사회"}
+    ],
+    "adam.smith": [
+      {"subject": "한 가지 일을 나누어 하면 무엇이 달라질까", "topic": "경제"},
+      {"subject": "교환이 이루어지려면 무엇이 필요할까", "topic": "경제"},
+      {"subject": "경제적 선택에도 도덕이 필요할까", "topic": "철학"}
+    ],
+    "yun.dongju": [
+      {"subject": "시의 화자와 작가는 같은 사람일까", "topic": "문학"},
+      {"subject": "부끄러움이라는 감정을 글로 읽기", "topic": "심리"},
+      {"subject": "일상의 장면을 시의 이미지로 바라보기", "topic": "예술"}
+    ]
+  }
+}
