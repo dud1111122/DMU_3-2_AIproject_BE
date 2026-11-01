@@ -33,4 +33,12 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     /** Any post (hidden/deleted included) with its persona fetched. For admin use only. */
     @Query("select p from Post p join fetch p.persona pe where p.id = :id")
     Optional<Post> findWithPersonaById(@Param("id") Long id);
+
+    /** Visible posts among the IDs with their personas fetched (order not defined). */
+    @Query("select p from Post p join fetch p.persona pe where p.id in :ids and " + VISIBLE_POST)
+    List<Post> findVisibleWithPersonaByIdIn(@Param("ids") Collection<Long> ids);
+
+    /** Number of visible posts written by a persona. */
+    @Query("select count(p) from Post p join p.persona pe where pe.id = :personaId and " + VISIBLE_POST)
+    long countVisibleByPersonaId(@Param("personaId") Long personaId);
 }
