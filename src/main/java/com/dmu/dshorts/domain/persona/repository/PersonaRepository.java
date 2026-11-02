@@ -24,4 +24,15 @@ public interface PersonaRepository extends JpaRepository<Persona, Long> {
 
     @Query("select pe.id from Persona pe where pe.id in :ids and " + VISIBLE_PERSONA)
     List<Long> findVisibleIds(@Param("ids") Collection<Long> ids);
+
+    /**
+     * Recommendation ranking: visible personas with the number of their topics among {@code topicIds}
+     * (pass only non-deleted topic IDs), ordered by that count desc, id asc. Rows {@code [id, overlapCount]}.
+     */
+    @Query(value = "select pe.id, count(pt.topic_id) as overlap from personas pe"
+            + " left join persona_topics pt on pt.persona_id = pe.id and pt.topic_id in (:topicIds)"
+            + " where pe.active = true and pe.deleted_at is null"
+            + " group by pe.id order by overlap desc, pe.id asc limit :maxResults", nativeQuery = true)
+    List<Object[]> rankByTopicOverlap(@Param("topicIds") Collection<Long> topicIds,
+                                      @Param("maxResults") int maxResults);
 }
