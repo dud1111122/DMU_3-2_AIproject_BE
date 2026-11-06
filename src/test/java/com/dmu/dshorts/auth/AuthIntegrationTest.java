@@ -74,9 +74,12 @@ class AuthIntegrationTest extends IntegrationTestSupport {
                 .andExpect(status().isForbidden())
                 .andExpect(jsonPath("$.error.code").value("FORBIDDEN"));
 
-        // Admin passes the security filter; no admin endpoint exists yet, so the result is a JSON 404.
-        mockMvc.perform(get("/api/v1/admin/topics").session(loginAsAdmin()))
+        // Admin passes the security filter; a truly unmapped admin path yields a JSON 404.
+        mockMvc.perform(get("/api/v1/admin/does-not-exist").session(loginAsAdmin()))
                 .andExpect(status().isNotFound());
+        // Admin topics list is mapped now and succeeds for an admin.
+        mockMvc.perform(get("/api/v1/admin/topics").session(loginAsAdmin()))
+                .andExpect(status().isOk());
     }
 
     @Test
