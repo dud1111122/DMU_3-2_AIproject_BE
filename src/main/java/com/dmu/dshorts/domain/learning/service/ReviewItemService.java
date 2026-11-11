@@ -43,7 +43,7 @@ public class ReviewItemService {
      */
     @Transactional
     public void openReview(Long userId, Long postId, Long keyPointId, ReviewReason reason) {
-        reviewItemRepository.upsertOpen(userId, postId, keyPointId, reason.name());
+        reviewItemRepository.upsertOpen(userId, postId, keyPointId, reason.name(), Instant.now());
     }
 
     /** {@code GET /users/me/review-items}: updated_at desc, id desc; only items of currently visible posts. */

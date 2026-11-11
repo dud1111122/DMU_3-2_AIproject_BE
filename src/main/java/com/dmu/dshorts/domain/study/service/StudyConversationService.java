@@ -24,6 +24,7 @@ import com.dmu.dshorts.global.common.Ids;
 import com.dmu.dshorts.global.error.ApiException;
 import com.dmu.dshorts.global.security.AuthUser;
 import com.dmu.dshorts.global.visibility.VisibilityService;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -188,7 +189,7 @@ public class StudyConversationService {
             }
             assessmentRepository.save(assessment);
             if (item.level() == AssessmentLevel.MISSED) {
-                reviewItemCommands.upsertOpen(userId, postId, item.keyPointId(), ReviewReason.CHAT_MISSED.name());
+                reviewItemCommands.upsertOpen(userId, postId, item.keyPointId(), ReviewReason.CHAT_MISSED.name(), Instant.now());
             }
             results.add(new SendMessageResponse.AssessmentResult(Ids.str(item.keyPointId()), item.level().name(),
                     item.feedback(), Ids.str(userMessage.getId())));

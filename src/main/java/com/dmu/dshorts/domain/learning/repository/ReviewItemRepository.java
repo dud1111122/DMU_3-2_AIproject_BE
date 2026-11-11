@@ -48,16 +48,18 @@ public interface ReviewItemRepository extends JpaRepository<ReviewItem, Long> {
 
     /**
      * Atomic open-or-reopen (DB_설계 §5 "복습 재개"): inserts an OPEN item or, on a (user_id, key_point_id)
-     * conflict, sets reason, status OPEN, completed_at NULL and updated_at now(). The post_id of an existing row
-     * is not changed (the composite FK guarantees it is the key point's post).
+     * conflict, sets reason, status OPEN, completed_at NULL and updated_at. {@code now} comes from the application
+     * clock, the same clock the entity's {@code @PreUpdate} uses, so timestamps stay ordered. The post_id of an
+     * existing row is not changed (the composite FK guarantees it is the key point's post).
      */
     @Modifying(flushAutomatically = true)
-    @Query(nativeQuery = true, value = "insert into review_items(user_id, post_id, key_point_id, reason)"
-            + " values (:userId, :postId, :keyPointId, :reason)"
+    @Query(nativeQuery = true, value = "insert into review_items(user_id, post_id, key_point_id, reason, updated_at)"
+            + " values (:userId, :postId, :keyPointId, :reason, :now)"
             + " on conflict (user_id, key_point_id) do update set reason = excluded.reason,"
-            + " status = 'OPEN', completed_at = null, updated_at = now()")
+            + " status = 'OPEN', completed_at = null, updated_at = excluded.updated_at")
     int upsertOpen(@Param("userId") Long userId, @Param("postId") Long postId,
-                   @Param("keyPointId") Long keyPointId, @Param("reason") String reason);
+                   @Param("keyPointId") Long keyPointId, @Param("reason") String reason,
+                   @Param("now") Instant now);
 
     /** Projection for review lists and PATCH responses. */
     interface ReviewRow {

@@ -1,6 +1,7 @@
 package com.dmu.dshorts.domain.study.repository;
 
 import com.dmu.dshorts.domain.learning.entity.ReviewItem;
+import java.time.Instant;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
@@ -15,12 +16,13 @@ public interface StudyReviewItemCommands extends Repository<ReviewItem, Long> {
 
     @Modifying(flushAutomatically = true)
     @Query(value = """
-            INSERT INTO review_items(user_id, post_id, key_point_id, reason)
-            VALUES (:userId, :postId, :keyPointId, :reason)
+            INSERT INTO review_items(user_id, post_id, key_point_id, reason, updated_at)
+            VALUES (:userId, :postId, :keyPointId, :reason, :now)
             ON CONFLICT (user_id, key_point_id)
             DO UPDATE SET reason = EXCLUDED.reason,
-                          status = 'OPEN', completed_at = NULL, updated_at = now()
+                          status = 'OPEN', completed_at = NULL, updated_at = EXCLUDED.updated_at
             """, nativeQuery = true)
     int upsertOpen(@Param("userId") Long userId, @Param("postId") Long postId,
-                   @Param("keyPointId") Long keyPointId, @Param("reason") String reason);
+                   @Param("keyPointId") Long keyPointId, @Param("reason") String reason,
+                   @Param("now") Instant now);
 }

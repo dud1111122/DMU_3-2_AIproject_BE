@@ -76,9 +76,13 @@ class PostPreparationIntegrationTest extends IntegrationTestSupport {
         });
     }
 
+    /** Same selection as the service: visible personas that have at least one public topic. */
     private int expectedJobs() {
-        return (int) personaRepository.findAll().stream().filter(Persona::isVisible).count()
-                * plan.slotsPerPersona();
+        long personas = personaRepository.findAll().stream()
+                .filter(Persona::isVisible)
+                .filter(persona -> !topicRepository.findPublicTopicsOfPersona(persona.getId()).isEmpty())
+                .count();
+        return (int) personas * plan.slotsPerPersona();
     }
 
     private List<GenerationJob> jobsOf(String runKey) {
