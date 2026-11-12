@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 /**
  * Admin preparation command. Inactive unless the app is started with {@code --prepare-posts=<runKey>}:
  * <pre>
- * ./gradlew bootRun --args='--prepare-posts=demo-v1 --spring.main.web-application-type=none'
- * java -jar build/libs/*.jar --prepare-posts=demo-v1 --spring.main.web-application-type=none
+ * ./gradlew bootRun --args='--prepare-posts=demo-v1'
+ * java -jar build/libs/*.jar --prepare-posts=demo-v1
  * </pre>
  * It runs the preparation for the run key and then exits: 0 when every job of the run key is SUCCEEDED,
  * 1 when some job is not, 2 on a configuration error (invalid run key, AI not configured).
