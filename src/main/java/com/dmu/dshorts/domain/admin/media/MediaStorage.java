@@ -99,6 +99,24 @@ public class MediaStorage {
      * Validates a path reference from an admin request and returns the actual image metadata.
      * Anything that is not a supported image file under the media directory → 400 VALIDATION_FAILED.
      */
+    /**
+     * Saves a server-generated image (for example a card background) at a fixed relative path under the media
+     * directory, replacing any earlier file at that path. The path must stay inside the media directory.
+     */
+    public StoredImage saveGenerated(String relativePath, byte[] bytes, String mime, int width, int height) {
+        Path target = root.resolve(relativePath).normalize();
+        if (!target.startsWith(root) || target.equals(root)) {
+            throw new IllegalArgumentException("generated image path escapes the media directory");
+        }
+        try {
+            Files.createDirectories(target.getParent());
+            Files.write(target, bytes);
+        } catch (IOException ex) {
+            throw new UncheckedIOException("could not write generated image", ex);
+        }
+        return new StoredImage(relativePath, mime, width, height, bytes.length);
+    }
+
     public ImageInfo requireExistingImage(String path, String field) {
         if (path == null || !RELATIVE_PATH.matcher(path).matches() || path.contains("..") || path.contains("//")) {
             throw ApiException.validation(field, "업로드 API가 반환한 이미지 경로만 사용할 수 있습니다.");

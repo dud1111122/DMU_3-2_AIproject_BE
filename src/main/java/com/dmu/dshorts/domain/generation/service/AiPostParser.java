@@ -36,7 +36,8 @@ public final class AiPostParser {
             requireObject(node, "sections[]");
             sections.add(new SectionSeed(optionalText(node, "title"), optionalText(node, "body"),
                     optionalText(node, "citationType"), optionalText(node, "quoteAttribution"),
-                    null, null, null, null, null, false, null));
+                    null, optionalText(node, "imageAlt"), null, null, null, false, null,
+                    optionalText(node, "imagePrompt")));
         }
 
         List<KeyPointSeed> keyPoints = new ArrayList<>();

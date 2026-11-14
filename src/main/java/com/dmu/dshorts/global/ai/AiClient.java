@@ -28,4 +28,18 @@ public interface AiClient {
 
     /** {@link #complete} in JSON mode, parsed. Unparseable output → 502 AI_FAILED. */
     JsonNode completeJson(List<AiMessage> messages);
+
+    /** True when an image model is also configured ({@code AI_IMAGE_MODEL}). */
+    boolean imageConfigured();
+
+    /**
+     * Generates one image from a prompt.
+     *
+     * @param size provider size, for example {@code 1024x1536}
+     */
+    GeneratedImage generateImage(String prompt, String size);
+
+    /** Image bytes in the MIME type the provider returned (requested as JPEG). */
+    record GeneratedImage(byte[] bytes, String mime) {
+    }
 }

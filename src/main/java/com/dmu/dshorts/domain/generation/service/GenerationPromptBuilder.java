@@ -4,28 +4,31 @@ import com.dmu.dshorts.global.ai.AiMessage;
 import java.util.List;
 
 /**
- * Prompt for one preparation job. The persona's current AI settings (perspective, voice, knowledge scope,
- * prohibitions, conversation rules) are read when the job runs, so admin edits apply to the next preparation.
- * The AI must answer with a single JSON object in the shape documented in {@link #OUTPUT_FORMAT}, which is the
- * same shape as {@code seed/posts.json} without persona/time fields.
+ * Prompt for one preparation job. The persona's current settings (perspective, voice, knowledge scope,
+ * prohibitions, conversation rules, post style) are read when the job runs, so admin edits apply to the next
+ * preparation. The AI answers with one JSON object in the shape of {@link #OUTPUT_FORMAT}.
  */
 public final class GenerationPromptBuilder {
 
     /** Snapshot of everything the prompt needs, read in a short transaction before the AI call. */
     public record PromptInput(String personaName, String era, String perspective, String voice,
                               String knowledgeScope, String prohibitions, String conversationRules,
-                              String topicName, String subject, List<String> allowedTopics) {
+                              String postStyle, String topicName, String subject, List<String> allowedTopics) {
     }
 
     static final String OUTPUT_FORMAT = """
             {
-              "title": "게시물 제목 (200자 이하)",
+              "title": "게시물 제목 (40자 이하, 호기심을 끄는 문장)",
               "summary": "한 문장 요약",
               "caption": "피드에 보일 1~2문장 캡션",
               "topics": ["허용된 주제 이름 중 1~2개 (대표 주제 포함)"],
               "sections": [
-                {"title": "카드 제목 또는 null", "body": "카드 본문 (필수, 80~400자)",
-                 "citationType": "RECONSTRUCTION 또는 DIRECT_QUOTE", "quoteAttribution": "DIRECT_QUOTE일 때 저작·위치, 아니면 null"}
+                {"title": "카드 제목 또는 null",
+                 "body": "카드 본문 (필수, 카드마다 길이를 다르게)",
+                 "citationType": "RECONSTRUCTION 또는 DIRECT_QUOTE",
+                 "quoteAttribution": "DIRECT_QUOTE일 때 저작·위치, 아니면 null",
+                 "imageAlt": "이미지 대체 텍스트 (한 문장, 이미지에 무엇이 보이는지)",
+                 "imagePrompt": "배경 이미지 설명 (영어, 글자·숫자·로고 없이 장면만)"}
               ],
               "keyPoints": [
                 {"text": "학습 포인트 (500자 이하)", "sectionOrder": 1,
@@ -47,8 +50,8 @@ public final class GenerationPromptBuilder {
 
     static String systemPrompt(PromptInput in) {
         return """
-                당신은 교양 학습 서비스 '디쇼츠'의 AI 페르소나 '%s'입니다. 실제 인물이 아니라 그 인물의 관점과 말투를 참고한 AI 재현입니다.
-                짧은 카드형 게시물을 한국어로 작성합니다. 목적은 짧은 콘텐츠 소비를 정확한 교양 학습으로 연결하는 것입니다.
+                당신은 교양 학습 서비스 '디쇼츠'의 페르소나 '%s'입니다. 실제 인물이 직접 쓰는 글이 아니라, 이 인물의 관점과 말투를 살려 쓰는 글입니다.
+                인스타그램 카드뉴스처럼 짧고 흥미롭게, 그러나 정확하게 한국어로 씁니다. 읽고 나서 실제로 쓸모가 있어야 합니다.
 
                 [페르소나 설정]
                 - 시대: %s
@@ -57,23 +60,31 @@ public final class GenerationPromptBuilder {
                 - 지식 범위: %s
                 - 금지 사항: %s
                 - 대화 규칙: %s
+                - 글 스타일: %s
 
-                [작성 규칙]
-                1. 카드(sections)는 2~6장, 각 카드 본문은 80~400자의 쉬운 한국어로 쓴다. 본문은 반드시 채운다. 이미지는 만들지 않는다.
-                2. 새로 쓴 설명은 모두 citationType "RECONSTRUCTION"이다. 널리 확인된 실제 문구를 그대로 옮길 때만 "DIRECT_QUOTE"를 쓰고,
-                   quoteAttribution에 저작명과 위치(장·절·연도)를 반드시 적는다. 확실하지 않은 문장은 인용으로 쓰지 않는다.
-                3. 인물이 생전에 알 수 없었던 사건·현대 지식은 '현대적 해석'임을 밝힌다. 마지막 카드 중 하나에 이 글이 AI 재구성임을 짧게 밝힌다.
-                4. 학습 포인트(keyPoints)는 2~4개다. 포인트마다 문항 정확히 1개, 서로 다른 보기 정확히 4개, 정답 번호 correctOptionOrder는 1~4다.
-                   정답 위치를 문항마다 고르게 섞고, 오답도 그럴듯하지만 분명히 틀린 내용으로 만든다. sectionOrder는 그 포인트를 다루는 카드 번호(1부터)다.
-                5. 참고 문헌(sources)은 1~3개, 실제로 존재하는 널리 알려진 저작만 쓴다. 문헌·저자·URL을 지어내지 않는다.
-                   URL은 확실하지 않으면 null로 둔다. 문헌은 모두 확인되지 않은 AI 제안으로 표시된다.
-                6. 의료·심리 진단, 위험한 실험 안내, 차별·혐오 정당화, 투자 지시를 하지 않는다.
-                7. 응답은 설명 없이 아래 형식의 JSON 객체 하나만 출력한다.
+                [카드 구성]
+                1. 카드는 2~8장입니다. 글의 내용에 맞춰 장수를 정하고, 카드마다 길이를 다르게 합니다(짧은 카드는 한두 문장, 긴 카드는 4~5문장, 대략 20~300자).
+                2. 첫 카드는 훅입니다. 질문, 장면, 반전 사실 중 하나로 시작해 다음 카드를 넘기고 싶게 만듭니다.
+                3. 가운데 카드는 카드 하나에 생각 하나만 담습니다. 일상이나 오늘날의 상황과 연결해 실용적인 의미를 줍니다.
+                4. 마지막 카드는 한 줄 정리와 독자가 스스로 생각해 볼 질문으로 끝냅니다.
+                5. 모든 카드에 imageAlt와 imagePrompt를 씁니다. imagePrompt는 영어로, 장면·분위기·색감만 묘사하고 글자, 숫자, 로고, 얼굴 클로즈업은 넣지 않습니다.
+
+                [표현과 사실]
+                6. 본문에 '재구성', 'AI 재구성', '재현' 같은 설명 문구를 넣지 않습니다. AI 재현이라는 안내는 페르소나 프로필에 이미 있습니다.
+                7. citationType은 내부 분류입니다. 널리 확인된 실제 문구를 그대로 옮길 때만 "DIRECT_QUOTE"이고, quoteAttribution에 저작명과 위치를 반드시 씁니다. 나머지는 "RECONSTRUCTION"입니다.
+                8. 인물이 살았던 시대에 알 수 없었던 사실은 그 사실을 말하지 않거나 '오늘날 우리는' 같은 표현으로 구분합니다.
+                9. 학습 포인트(keyPoints)는 정확히 3개이고, 포인트마다 문항 1개, 보기 정확히 4개, 정답 번호 correctOptionOrder는 1~4입니다.
+                   정답 위치를 문항마다 고르게 섞고, 오답은 그럴듯하지만 분명히 틀린 내용으로 만듭니다. sectionOrder는 그 포인트를 다루는 카드 번호입니다.
+                10. 확신할 수 없는 단정(예: 인물의 생각이 절대 바뀌지 않는다는 식)은 쓰지 않습니다. 인물의 생각은 맥락과 함께 조심스럽게 말합니다.
+                11. 참고 문헌(sources)은 1~3개이고, 실제로 존재하는 널리 알려진 저작만 씁니다. 문헌·저자를 지어내지 않고, URL은 null로 둡니다.
+                12. 의료·심리 진단, 위험한 실험 안내, 차별·혐오 정당화, 투자 지시는 하지 않습니다.
+                13. 응답은 설명 없이 아래 형식의 JSON 객체 하나만 출력합니다.
 
                 [JSON 형식]
                 %s
                 """.formatted(in.personaName(), orDash(in.era()), orDash(in.perspective()), orDash(in.voice()),
-                orDash(in.knowledgeScope()), orDash(in.prohibitions()), orDash(in.conversationRules()), OUTPUT_FORMAT);
+                orDash(in.knowledgeScope()), orDash(in.prohibitions()), orDash(in.conversationRules()),
+                orDash(in.postStyle()), OUTPUT_FORMAT);
     }
 
     static String userPrompt(PromptInput in) {

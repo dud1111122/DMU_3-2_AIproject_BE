@@ -40,6 +40,7 @@ CREATE TABLE personas (
   knowledge_scope text NOT NULL DEFAULT '',
   prohibitions text NOT NULL DEFAULT '',
   conversation_rules text NOT NULL DEFAULT '',
+  post_style text NOT NULL DEFAULT '',
   active boolean NOT NULL DEFAULT true,
   deleted_at timestamptz,
   updated_at timestamptz NOT NULL DEFAULT now()

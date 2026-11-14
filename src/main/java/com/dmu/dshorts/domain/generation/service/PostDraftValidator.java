@@ -17,7 +17,7 @@ import java.util.Set;
  *
  * <ul>
  *   <li>title 1..200 chars; topics non-empty and all within the persona's allowed topics</li>
- *   <li>1..10 cards; body required (≤ {@value #MAX_SECTION_BODY} chars); DIRECT_QUOTE requires quoteAttribution;
+ *   <li>2..8 cards; body required (≤ {@value #MAX_SECTION_BODY} chars); DIRECT_QUOTE requires quoteAttribution;
  *       an image path requires alt text</li>
  *   <li>2..4 key points (≤500 chars), optional sectionOrder within the cards; exactly one question per point
  *       with exactly 4 distinct non-blank options (≤500 chars) and correctOptionOrder 1..4</li>
@@ -26,7 +26,8 @@ import java.util.Set;
  */
 public final class PostDraftValidator {
 
-    public static final int MAX_SECTIONS = 10;
+    public static final int MIN_SECTIONS = 2;
+    public static final int MAX_SECTIONS = 8;
     public static final int MIN_KEY_POINTS = 2;
     public static final int MAX_KEY_POINTS = 4;
     public static final int OPTION_COUNT = 4;
@@ -49,7 +50,8 @@ public final class PostDraftValidator {
 
         List<SectionSeed> sections = post.sections();
         int sectionCount = sections == null ? 0 : sections.size();
-        require(sectionCount >= 1 && sectionCount <= MAX_SECTIONS, "needs 1.." + MAX_SECTIONS + " sections");
+        require(sectionCount >= MIN_SECTIONS && sectionCount <= MAX_SECTIONS,
+                "needs " + MIN_SECTIONS + ".." + MAX_SECTIONS + " sections");
         for (int i = 0; i < sectionCount; i++) {
             SectionSeed section = sections.get(i);
             String label = "section " + (i + 1);

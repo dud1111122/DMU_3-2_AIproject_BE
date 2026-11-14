@@ -65,6 +65,10 @@ public class Persona {
     @Column(name = "conversation_rules", nullable = false)
     private String conversationRules = "";
 
+    /** Card-level style for generated posts: hook, structure, tone details. Admin/server only. */
+    @Column(name = "post_style", nullable = false)
+    private String postStyle = "";
+
     @Column(name = "active", nullable = false)
     private boolean active = true;
 
@@ -187,6 +191,14 @@ public class Persona {
 
     public String getConversationRules() {
         return conversationRules;
+    }
+
+    public String getPostStyle() {
+        return postStyle;
+    }
+
+    public void setPostStyle(String postStyle) {
+        this.postStyle = postStyle;
     }
 
     public void setConversationRules(String conversationRules) {

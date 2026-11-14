@@ -4,7 +4,10 @@ import com.dmu.dshorts.domain.generation.entity.GenerationJob;
 import com.dmu.dshorts.domain.generation.entity.GenerationJobStatus;
 import com.dmu.dshorts.domain.generation.repository.GenerationJobRepository;
 import com.dmu.dshorts.domain.generation.repository.GenerationPersonaQueries;
+import com.dmu.dshorts.domain.admin.media.MediaStorage;
+import com.dmu.dshorts.domain.admin.media.MediaStorage.StoredImage;
 import com.dmu.dshorts.domain.generation.seed.SeedData.PostSeed;
+import com.dmu.dshorts.domain.generation.seed.SeedData.SectionSeed;
 import com.dmu.dshorts.domain.generation.service.GenerationPlan.PlannedJob;
 import com.dmu.dshorts.domain.generation.service.GenerationPromptBuilder.PromptInput;
 import com.dmu.dshorts.domain.persona.entity.Persona;
@@ -13,10 +16,12 @@ import com.dmu.dshorts.domain.post.entity.Post;
 import com.dmu.dshorts.domain.topic.entity.Topic;
 import com.dmu.dshorts.domain.topic.repository.TopicRepository;
 import com.dmu.dshorts.global.ai.AiClient;
+import com.dmu.dshorts.global.ai.AiClient.GeneratedImage;
 import com.dmu.dshorts.global.error.ApiException;
 import com.dmu.dshorts.global.error.ErrorCode;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -54,6 +59,7 @@ public class PostPreparationService {
     private final GenerationPlan plan;
     private final PostWriter postWriter;
     private final TransactionTemplate tx;
+    private final MediaStorage media;
 
     public PostPreparationService(AiClient aiClient,
                                   GenerationJobRepository jobRepository,
@@ -62,7 +68,8 @@ public class PostPreparationService {
                                   TopicRepository topicRepository,
                                   GenerationPlan plan,
                                   PostWriter postWriter,
-                                  TransactionTemplate tx) {
+                                  TransactionTemplate tx,
+                                  MediaStorage media) {
         this.aiClient = aiClient;
         this.jobRepository = jobRepository;
         this.personaQueries = personaQueries;
@@ -71,6 +78,7 @@ public class PostPreparationService {
         this.plan = plan;
         this.postWriter = postWriter;
         this.tx = tx;
+        this.media = media;
     }
 
     /** Outcome of one command run. {@code statusCounts} covers every job of the run key after the run. */
@@ -171,8 +179,10 @@ public class PostPreparationService {
             model = aiClient.modelName();
             PostSeed draft = AiPostParser.parse(output, claim.personaUsername(), claim.input().topicName());
             PostDraftValidator.validate(draft, claim.topicsByName().keySet());
+            // Image calls and file writes happen outside any transaction; a failure fails this job only.
+            PostSeed illustrated = withCardImages(jobId, draft);
             String aiModel = model;
-            Long postId = tx.execute(status -> saveSuccess(jobId, draft, claim, aiModel));
+            Long postId = tx.execute(status -> saveSuccess(jobId, illustrated, claim, aiModel));
             log.info("Job {} ({}) succeeded: post {}", jobId, claim.requestKey(), postId);
             return GenerationJobStatus.SUCCEEDED;
         } catch (RuntimeException ex) {
@@ -182,6 +192,40 @@ public class PostPreparationService {
             tx.executeWithoutResult(status -> saveFailure(jobId, message, aiModel));
             return GenerationJobStatus.FAILED;
         }
+    }
+
+    /** Card background size; portrait suits a phone-first card layout. */
+    static final String CARD_IMAGE_SIZE = "1024x1536";
+    static final int CARD_IMAGE_WIDTH = 1024;
+    static final int CARD_IMAGE_HEIGHT = 1536;
+
+    /**
+     * Generates one background image per card that has an {@code imagePrompt}, stores it under
+     * {@code cards/<jobId>/<n>.jpg} and marks it AI-generated. Returns the draft unchanged when no image model
+     * is configured, so text-only posts still save.
+     */
+    private PostSeed withCardImages(Long jobId, PostSeed draft) {
+        if (!aiClient.imageConfigured()) {
+            return draft;
+        }
+        List<SectionSeed> cards = new ArrayList<>();
+        for (int i = 0; i < draft.sections().size(); i++) {
+            SectionSeed card = draft.sections().get(i);
+            if (card.imagePrompt() == null) {
+                cards.add(card);
+                continue;
+            }
+            GeneratedImage image = aiClient.generateImage(card.imagePrompt(), CARD_IMAGE_SIZE);
+            StoredImage stored = media.saveGenerated("cards/" + jobId + "/" + (i + 1) + ".jpg",
+                    image.bytes(), image.mime(), CARD_IMAGE_WIDTH, CARD_IMAGE_HEIGHT);
+            String alt = card.imageAlt() == null || card.imageAlt().isBlank()
+                    ? (card.title() == null ? draft.title() : card.title()) : card.imageAlt();
+            cards.add(new SectionSeed(card.title(), card.body(), card.citationType(), card.quoteAttribution(),
+                    stored.path(), alt, stored.mime(), stored.width(), stored.height(), true, "AI 생성 이미지",
+                    card.imagePrompt()));
+        }
+        return new PostSeed(draft.personaUsername(), draft.topics(), draft.title(), draft.summary(),
+                draft.caption(), draft.publishedHoursAgo(), cards, draft.keyPoints(), draft.sources());
     }
 
     /** Snapshot taken in the claim transaction; {@code problem} != null means the job cannot run. */
@@ -219,7 +263,7 @@ public class PostPreparationService {
 
         PromptInput input = new PromptInput(persona.getDisplayName(), persona.getEra(), persona.getPerspective(),
                 persona.getVoice(), persona.getKnowledgeScope(), persona.getProhibitions(),
-                persona.getConversationRules(), jobTopic.getName(), job.getSubject(),
+                persona.getConversationRules(), persona.getPostStyle(), jobTopic.getName(), job.getSubject(),
                 List.copyOf(topicsByName.keySet()));
         return new Claim(job.getRequestKey(), persona.getUsername(), input, topicsByName, null);
     }

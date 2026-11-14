@@ -62,12 +62,29 @@ class PostDraftRulesTest {
     }
 
     @Test
-    void oneSectionIsEnough() {
+    void oneSectionIsRejected() {
         Map<String, Object> raw = GenerationFixtures.validAiPost();
         raw.put("sections", new ArrayList<>(List.of(
                 GenerationFixtures.section(null, "단 하나의 카드", "RECONSTRUCTION", null))));
         GenerationFixtures.keyPoints(raw).forEach(point -> point.put("sectionOrder", 1));
+        assertThatThrownBy(() -> PostDraftValidator.validate(parse(raw), ALLOWED))
+                .isInstanceOf(InvalidPostDraftException.class);
+    }
+
+    @Test
+    void nineSectionsAreRejectedAndEightAreAccepted() {
+        Map<String, Object> raw = GenerationFixtures.validAiPost();
+        List<Map<String, Object>> eight = new ArrayList<>();
+        for (int i = 1; i <= 8; i++) {
+            eight.add(GenerationFixtures.section(null, "카드 " + i, "RECONSTRUCTION", null));
+        }
+        raw.put("sections", eight);
+        GenerationFixtures.keyPoints(raw).forEach(point -> point.put("sectionOrder", 1));
         assertThatCode(() -> PostDraftValidator.validate(parse(raw), ALLOWED)).doesNotThrowAnyException();
+
+        eight.add(GenerationFixtures.section(null, "카드 9", "RECONSTRUCTION", null));
+        assertThatThrownBy(() -> PostDraftValidator.validate(parse(raw), ALLOWED))
+                .isInstanceOf(InvalidPostDraftException.class);
     }
 
     @Test

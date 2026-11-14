@@ -7,3 +7,7 @@ build/
 .env.*
 !.env.example
 .local/
+
+# Generated/uploaded media (served at /media, not versioned)
+media/
+.claude/

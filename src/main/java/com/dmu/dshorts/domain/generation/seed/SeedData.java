@@ -35,7 +35,8 @@ public final class SeedData {
     /** {@code citationType} DIRECT_QUOTE requires {@code quoteAttribution}. Image requires imageAlt. */
     public record SectionSeed(String title, String body, String citationType, String quoteAttribution,
                               String imagePath, String imageAlt, String imageMime, Integer imageWidth,
-                              Integer imageHeight, Boolean imageAiGenerated, String imageCredit) {
+                              Integer imageHeight, Boolean imageAiGenerated, String imageCredit,
+                              String imagePrompt) {
     }
 
     /** {@code sectionOrder} optionally links the point to a card (1-based). */

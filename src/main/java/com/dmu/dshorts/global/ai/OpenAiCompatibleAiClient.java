@@ -37,12 +37,14 @@ public class OpenAiCompatibleAiClient implements AiClient {
     private final String provider;
     private final String apiKey;
     private final String model;
+    private final String imageModel;
 
     public OpenAiCompatibleAiClient(RestClient.Builder builder,
                                     ObjectMapper objectMapper,
                                     @Value("${app.ai.provider:}") String provider,
                                     @Value("${app.ai.api-key:}") String apiKey,
                                     @Value("${app.ai.model:}") String model,
+                                    @Value("${app.ai.image-model:}") String imageModel,
                                     @Value("${app.ai.base-url:https://api.openai.com/v1}") String baseUrl,
                                     @Value("${app.ai.connect-timeout:10s}") Duration connectTimeout,
                                     @Value("${app.ai.read-timeout:60s}") Duration readTimeout) {
@@ -50,6 +52,7 @@ public class OpenAiCompatibleAiClient implements AiClient {
         this.provider = provider == null ? "" : provider.trim().toLowerCase();
         this.apiKey = apiKey == null ? "" : apiKey.trim();
         this.model = model == null ? "" : model.trim();
+        this.imageModel = imageModel == null ? "" : imageModel.trim();
 
         java.net.http.HttpClient httpClient = java.net.http.HttpClient.newBuilder()
                 .connectTimeout(connectTimeout)
@@ -114,6 +117,53 @@ public class OpenAiCompatibleAiClient implements AiClient {
             throw new ApiException(ErrorCode.AI_FAILED);
         }
         return content.asText();
+    }
+
+    @Override
+    public boolean imageConfigured() {
+        return configured() && !imageModel.isEmpty();
+    }
+
+    @Override
+    public GeneratedImage generateImage(String prompt, String size) {
+        if (!imageConfigured()) {
+            throw new ApiException(ErrorCode.AI_NOT_CONFIGURED);
+        }
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("model", imageModel);
+        body.put("prompt", prompt);
+        body.put("size", size);
+        body.put("quality", "medium");
+        body.put("output_format", "jpeg");
+        body.put("n", 1);
+
+        JsonNode response;
+        try {
+            response = restClient.post()
+                    .uri("/images/generations")
+                    .header(HttpHeaders.AUTHORIZATION, "Bearer " + apiKey)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body(body)
+                    .retrieve()
+                    .body(JsonNode.class);
+        } catch (RestClientResponseException ex) {
+            log.warn("AI image provider returned HTTP {}", ex.getStatusCode().value());
+            throw new ApiException(ErrorCode.AI_FAILED);
+        } catch (RestClientException ex) {
+            log.warn("AI image request failed: {}", ex.getClass().getSimpleName());
+            throw new ApiException(ErrorCode.AI_FAILED);
+        }
+
+        JsonNode encoded = response == null ? null : response.at("/data/0/b64_json");
+        if (encoded == null || encoded.isMissingNode() || encoded.isNull() || encoded.asText().isBlank()) {
+            log.warn("AI image provider returned no image");
+            throw new ApiException(ErrorCode.AI_FAILED);
+        }
+        try {
+            return new GeneratedImage(java.util.Base64.getDecoder().decode(encoded.asText()), "image/jpeg");
+        } catch (IllegalArgumentException ex) {
+            throw new ApiException(ErrorCode.AI_FAILED);
+        }
     }
 
     @Override
