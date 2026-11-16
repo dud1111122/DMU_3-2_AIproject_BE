@@ -4,100 +4,100 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import java.time.Instant;
 
 /**
- * Table {@code debate_turns}. Turn 1..6 of a debate; speaker must be one of the two personas (DB CHECK).
+ * Table {@code debate_turns}. One turn of a debate: a persona turn (AI, speaker persona set) or a user turn
+ * (speaker persona null). {@code turnOrder} is 1..12 and unique per debate.
  */
 @Entity
 @Table(name = "debate_turns")
-@IdClass(DebateTurnId.class)
 public class DebateTurn {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "debate_id", nullable = false)
     private Long debateId;
 
-    @Id
     @Column(name = "turn_order", nullable = false)
     private Short turnOrder;
 
-    @Column(name = "persona_low_id", nullable = false)
-    private Long personaLowId;
-
-    @Column(name = "persona_high_id", nullable = false)
-    private Long personaHighId;
-
-    @Column(name = "speaker_id", nullable = false)
-    private Long speakerId;
-
     @Enumerated(EnumType.STRING)
-    @Column(name = "stage", nullable = false)
-    private DebateStage stage;
+    @Column(name = "speaker_type", nullable = false)
+    private SpeakerType speakerType;
+
+    @Column(name = "speaker_persona_id")
+    private Long speakerPersonaId;
 
     @Column(name = "body", nullable = false, length = 300)
     private String body;
 
+    @Column(name = "ai_model", length = 100)
+    private String aiModel;
+
+    @Column(name = "created_at")
+    private Instant createdAt;
+
     protected DebateTurn() {
     }
 
-    public DebateTurn(Long debateId, Short turnOrder, Long personaLowId, Long personaHighId, Long speakerId, DebateStage stage, String body) {
+    public DebateTurn(Long debateId, int turnOrder, SpeakerType speakerType, Long speakerPersonaId, String body,
+                      String aiModel) {
         this.debateId = debateId;
-        this.turnOrder = turnOrder;
-        this.personaLowId = personaLowId;
-        this.personaHighId = personaHighId;
-        this.speakerId = speakerId;
-        this.stage = stage;
+        this.turnOrder = (short) turnOrder;
+        this.speakerType = speakerType;
+        this.speakerPersonaId = speakerPersonaId;
         this.body = body;
+        this.aiModel = aiModel;
+    }
+
+    @PrePersist
+    protected void onPersist() {
+        if (createdAt == null) {
+            createdAt = Instant.now();
+        }
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public Long getDebateId() {
         return debateId;
     }
 
-    public Short getTurnOrder() {
+    public int getTurnOrder() {
         return turnOrder;
     }
 
-    public Long getPersonaLowId() {
-        return personaLowId;
+    public SpeakerType getSpeakerType() {
+        return speakerType;
     }
 
-    public void setPersonaLowId(Long personaLowId) {
-        this.personaLowId = personaLowId;
-    }
-
-    public Long getPersonaHighId() {
-        return personaHighId;
-    }
-
-    public void setPersonaHighId(Long personaHighId) {
-        this.personaHighId = personaHighId;
-    }
-
-    public Long getSpeakerId() {
-        return speakerId;
-    }
-
-    public void setSpeakerId(Long speakerId) {
-        this.speakerId = speakerId;
-    }
-
-    public DebateStage getStage() {
-        return stage;
-    }
-
-    public void setStage(DebateStage stage) {
-        this.stage = stage;
+    public Long getSpeakerPersonaId() {
+        return speakerPersonaId;
     }
 
     public String getBody() {
         return body;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public String getAiModel() {
+        return aiModel;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 }

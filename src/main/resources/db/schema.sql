@@ -258,32 +258,31 @@ CREATE INDEX ix_saved_post ON saved_posts(post_id);
 CREATE TABLE debates (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   user_id bigint NOT NULL REFERENCES users(id),
-  persona_low_id bigint NOT NULL REFERENCES personas(id),
-  persona_high_id bigint NOT NULL REFERENCES personas(id),
-  topic_text varchar(200) NOT NULL,
-  topic_key varchar(200) NOT NULL,
-  issue_summary text NOT NULL,
+  persona_a_id bigint NOT NULL REFERENCES personas(id),
+  persona_b_id bigint NOT NULL REFERENCES personas(id),
+  topic varchar(200) NOT NULL,
+  status text NOT NULL DEFAULT 'ACTIVE' CHECK (status IN ('ACTIVE','ENDED')),
+  turn_count smallint NOT NULL DEFAULT 0 CHECK (turn_count BETWEEN 0 AND 12),
+  summary text,
   ai_model varchar(100),
-  completed_at timestamptz NOT NULL DEFAULT now(),
-  CHECK (persona_low_id < persona_high_id),
-  UNIQUE (user_id, persona_low_id, persona_high_id, topic_key),
-  UNIQUE (id, persona_low_id, persona_high_id)
+  created_at timestamptz DEFAULT now(),
+  ended_at timestamptz,
+  updated_at timestamptz,
+  CHECK (persona_a_id <> persona_b_id),
+  CHECK ((status = 'ENDED') = (ended_at IS NOT NULL))
 );
-CREATE INDEX ix_debates_daily ON debates(user_id, completed_at DESC, id DESC);
-CREATE INDEX ix_debates_low ON debates(persona_low_id);
-CREATE INDEX ix_debates_high ON debates(persona_high_id);
+CREATE INDEX ix_debates_user ON debates(user_id, created_at DESC, id DESC);
 CREATE TABLE debate_turns (
-  debate_id bigint NOT NULL,
-  turn_order smallint NOT NULL CHECK (turn_order BETWEEN 1 AND 6),
-  persona_low_id bigint NOT NULL,
-  persona_high_id bigint NOT NULL,
-  speaker_id bigint NOT NULL,
-  stage text NOT NULL CHECK (stage IN ('OPENING','REBUTTAL','CLOSING')),
-  body varchar(300) NOT NULL,
-  PRIMARY KEY (debate_id, turn_order),
-  UNIQUE (debate_id, speaker_id, stage),
-  FOREIGN KEY (debate_id, persona_low_id, persona_high_id) REFERENCES debates(id, persona_low_id, persona_high_id),
-  CHECK (speaker_id IN (persona_low_id, persona_high_id))
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  debate_id bigint NOT NULL REFERENCES debates(id),
+  turn_order smallint NOT NULL CHECK (turn_order BETWEEN 1 AND 12),
+  speaker_type text NOT NULL CHECK (speaker_type IN ('PERSONA','USER')),
+  speaker_persona_id bigint REFERENCES personas(id),
+  body varchar(300) NOT NULL CHECK (length(body) BETWEEN 1 AND 300),
+  ai_model varchar(100),
+  created_at timestamptz DEFAULT now(),
+  UNIQUE (debate_id, turn_order),
+  CHECK ((speaker_type = 'PERSONA') = (speaker_persona_id IS NOT NULL))
 );
 CREATE TABLE post_reports (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,

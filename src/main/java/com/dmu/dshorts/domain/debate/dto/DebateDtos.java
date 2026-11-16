@@ -1,5 +1,6 @@
 package com.dmu.dshorts.domain.debate.dto;
 
+import com.dmu.dshorts.domain.debate.entity.DebateTurn;
 import com.dmu.dshorts.domain.persona.entity.Persona;
 import com.dmu.dshorts.global.common.Ids;
 import java.time.Instant;
@@ -11,8 +12,12 @@ public final class DebateDtos {
     private DebateDtos() {
     }
 
-    /** {@code POST /debates}, {@code POST /guest/debates}. Validated in the service (IDs are strings). */
+    /** {@code POST /debates}. IDs are validated in the service. */
     public record CreateDebateRequest(List<String> personaIds, String topic) {
+    }
+
+    /** {@code POST /debates/{id}/messages}. */
+    public record MessageRequest(String content) {
     }
 
     /** Public persona fields only (no AI settings). */
@@ -25,29 +30,43 @@ public final class DebateDtos {
         }
     }
 
-    /** One turn. {@code citationType} is always {@code RECONSTRUCTION} (AI reconstruction, not a quote). */
-    public record TurnResponse(int order, String personaId, String stage, String body, String citationType) {
+    /**
+     * One turn. {@code speakerType} is {@code PERSONA} (AI turn, {@code personaId} set) or {@code USER}
+     * ({@code personaId} null). {@code order} is 1-based.
+     */
+    public record TurnResponse(int order, String speakerType, String personaId, String body, Instant createdAt) {
 
-        public static final String RECONSTRUCTION = "RECONSTRUCTION";
+        public static TurnResponse from(DebateTurn turn) {
+            return new TurnResponse(turn.getTurnOrder(), turn.getSpeakerType().name(),
+                    turn.getSpeakerPersonaId() == null ? null : Ids.str(turn.getSpeakerPersonaId()),
+                    turn.getBody(), turn.getCreatedAt());
+        }
     }
 
     /**
-     * Debate result. Member: {@code id} set, {@code persisted=true}, {@code remainingToday} = today's remaining
-     * quota. Guest: {@code id=null}, {@code persisted=false}, {@code remainingToday=null}.
-     * {@code personas} are ordered by persona id (low, high).
+     * Debate detail. {@code personas} = [A, B] (A speaks first). {@code summary} is null until ENDED.
+     * {@code remainingTurns} = turnLimit - turnCount.
      */
-    public record DebateResponse(String id, boolean persisted, String topic, List<PersonaSummary> personas,
-                                 List<TurnResponse> turns, String summary, Instant completedAt,
-                                 Integer remainingToday) {
+    public record DebateResponse(String id, String status, String topic, List<PersonaSummary> personas,
+                                 List<TurnResponse> turns, String summary, int turnCount, int turnLimit,
+                                 int remainingTurns, Instant createdAt, Instant endedAt) {
     }
 
     /** Item of {@code GET /users/me/debates}. */
-    public record DebateListItem(String id, String topic, List<PersonaSummary> personas, String summary,
-                                 Instant completedAt) {
+    public record DebateListItem(String id, String status, String topic, List<PersonaSummary> personas,
+                                 int turnCount, Instant createdAt) {
     }
 
     /** {@code GET /users/me/debates}: page plus today's quota (KST day). */
     public record DebateListResponse(List<DebateListItem> items, String nextCursor, int dailyLimit,
                                      int usedToday, int remainingToday, Instant resetAt) {
+    }
+
+    /** SSE {@code delta} event data. */
+    public record DeltaEvent(String text) {
+    }
+
+    /** SSE {@code error} event data. */
+    public record ErrorEvent(String code, String message) {
     }
 }

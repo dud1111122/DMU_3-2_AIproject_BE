@@ -2,6 +2,7 @@ package com.dmu.dshorts.global.ai;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * Provider-neutral AI text completion. Feature packages (study, debate, generation) build their own prompts
@@ -25,6 +26,12 @@ public interface AiClient {
      * @param jsonMode ask the provider for a single JSON object (include the word "JSON" in your prompt)
      */
     String complete(List<AiMessage> messages, boolean jsonMode);
+
+    /**
+     * Streams the assistant text: {@code onDelta} is called for each fragment as it arrives, and the full text is
+     * returned. Same errors as {@link #complete}. Blocking: never call inside an open DB transaction.
+     */
+    String stream(List<AiMessage> messages, Consumer<String> onDelta);
 
     /** {@link #complete} in JSON mode, parsed. Unparseable output → 502 AI_FAILED. */
     JsonNode completeJson(List<AiMessage> messages);
