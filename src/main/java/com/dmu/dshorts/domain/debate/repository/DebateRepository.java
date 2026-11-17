@@ -14,24 +14,21 @@ public interface DebateRepository extends JpaRepository<Debate, Long> {
 
     /** Both participants visible (active, not deleted). Requires the alias {@code d}. */
     String BOTH_PERSONAS_VISIBLE =
-            "d.personaLowId in (select pe.id from Persona pe where " + PersonaRepository.VISIBLE_PERSONA + ")"
-            + " and d.personaHighId in (select pe.id from Persona pe where " + PersonaRepository.VISIBLE_PERSONA + ")";
-
-    Optional<Debate> findByUserIdAndPersonaLowIdAndPersonaHighIdAndTopicKey(
-            Long userId, Long personaLowId, Long personaHighId, String topicKey);
+            "d.personaAId in (select pe.id from Persona pe where " + PersonaRepository.VISIBLE_PERSONA + ")"
+            + " and d.personaBId in (select pe.id from Persona pe where " + PersonaRepository.VISIBLE_PERSONA + ")";
 
     Optional<Debate> findByIdAndUserId(Long id, Long userId);
 
-    /** All own successful debates in {@code [from, to)} regardless of visibility (daily quota). */
-    long countByUserIdAndCompletedAtGreaterThanEqualAndCompletedAtLessThan(Long userId, Instant from, Instant to);
+    /** All own debates created in {@code [from, to)} regardless of visibility (daily quota). */
+    long countByUserIdAndCreatedAtGreaterThanEqualAndCreatedAtLessThan(Long userId, Instant from, Instant to);
 
     @Query("select d from Debate d where d.userId = :userId and " + BOTH_PERSONAS_VISIBLE
-            + " order by d.completedAt desc, d.id desc")
+            + " order by d.createdAt desc, d.id desc")
     List<Debate> findVisibleFirstPage(@Param("userId") Long userId, Pageable page);
 
     @Query("select d from Debate d where d.userId = :userId and " + BOTH_PERSONAS_VISIBLE
-            + " and (d.completedAt < :time or (d.completedAt = :time and d.id < :id))"
-            + " order by d.completedAt desc, d.id desc")
+            + " and (d.createdAt < :time or (d.createdAt = :time and d.id < :id))"
+            + " order by d.createdAt desc, d.id desc")
     List<Debate> findVisibleAfter(@Param("userId") Long userId, @Param("time") Instant time,
                                   @Param("id") Long id, Pageable page);
 }
