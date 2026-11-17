@@ -32,9 +32,9 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 class PostPreparationIntegrationTest extends IntegrationTestSupport {
 
     private static final AtomicInteger RUN_SEQUENCE = new AtomicInteger();
-    /** Subjects from seed/generation-plan.json (socrates slot 1, marie.curie slot 1). */
-    static final String FAILING_SUBJECT = "아는 것과 안다고 믿는 것";
-    static final String MALFORMED_SUBJECT = "보이지 않는 현상을 어떻게 연구할까";
+    /** Subjects from seed/generation-plan.json (socrates slot 1, marie.curie slot 1; keep in sync with seed/generation-plan.json). */
+    static final String FAILING_SUBJECT = "델포이 신탁이 가장 지혜롭다고 한 사람이 왜 자신은 현명하지 않다고 했을까?";
+    static final String MALFORMED_SUBJECT = "눈에 보이지 않는 방사선을 전기로 재는 실험은 어떻게 설계되었을까?";
 
     @MockitoBean
     AiClient aiClient;
