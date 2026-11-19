@@ -2,6 +2,7 @@ package com.dmu.dshorts.domain.debate.dto;
 
 import com.dmu.dshorts.domain.debate.entity.DebateTurn;
 import com.dmu.dshorts.domain.persona.entity.Persona;
+import com.dmu.dshorts.domain.post.dto.MediaUrls;
 import com.dmu.dshorts.global.common.Ids;
 import java.time.Instant;
 import java.util.List;
@@ -22,11 +23,11 @@ public final class DebateDtos {
 
     /** Public persona fields only (no AI settings). */
     public record PersonaSummary(String id, String username, String displayName, String era,
-                                 String avatarPath, String aiDisclosure) {
+                                 String avatarUrl, String aiDisclosure) {
 
         public static PersonaSummary from(Persona persona) {
             return new PersonaSummary(Ids.str(persona.getId()), persona.getUsername(), persona.getDisplayName(),
-                    persona.getEra(), persona.getAvatarPath(), persona.getAiDisclosure());
+                    persona.getEra(), MediaUrls.of(persona.getAvatarPath()), persona.getAiDisclosure());
         }
     }
 
@@ -57,9 +58,8 @@ public final class DebateDtos {
                                  int turnCount, Instant createdAt) {
     }
 
-    /** {@code GET /users/me/debates}: page plus today's quota (KST day). */
-    public record DebateListResponse(List<DebateListItem> items, String nextCursor, int dailyLimit,
-                                     int usedToday, int remainingToday, Instant resetAt) {
+    /** {@code GET /users/me/debates}: one page of the member's debates, newest first. */
+    public record DebateListResponse(List<DebateListItem> items, String nextCursor) {
     }
 
     /** SSE {@code delta} event data. */

@@ -12,6 +12,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.dmu.dshorts.domain.debate.service.DebateRules;
 import com.dmu.dshorts.domain.persona.entity.Persona;
 import com.dmu.dshorts.global.ai.AiMessage;
 import com.dmu.dshorts.global.error.ApiException;
@@ -26,8 +27,10 @@ import org.mockito.ArgumentCaptor;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MvcResult;
 
-/** User messages, streamed AI turns, speaker alternation, the 12-turn limit and the in-progress lock. */
+/** User messages, streamed AI turns, speaker alternation, the turn limit and the in-progress lock. */
 class DebateTurnIntegrationTest extends DebateTestSupport {
+
+    private static final int LIMIT = DebateRules.TURN_LIMIT;
 
     @Test
     void aiTurnsAlternateAndStreamDeltasThenTurnEvent() throws Exception {
@@ -75,7 +78,7 @@ class DebateTurnIntegrationTest extends DebateTestSupport {
 
         JsonNode detail = debateJson(member, id);
         assertThat(detail.at("/data/turnCount").asInt()).isEqualTo(5);
-        assertThat(detail.at("/data/remainingTurns").asInt()).isEqualTo(7);
+        assertThat(detail.at("/data/remainingTurns").asInt()).isEqualTo(25);
         assertThat(detail.at("/data/turns").size()).isEqualTo(5);
         assertThat(detail.at("/data/turns/0/speakerType").asText()).isEqualTo("USER");
         assertThat(detail.at("/data/turns/0/personaId").isNull()).isTrue();
@@ -145,7 +148,7 @@ class DebateTurnIntegrationTest extends DebateTestSupport {
         stubStream("발언");
         stubSummary("쟁점 요약");
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < LIMIT - 1; i++) {
             assertThat(names(nextTurn(member, id))).containsExactly("delta", "turn");
         }
         JsonNode before = debateJson(member, id);
@@ -154,12 +157,12 @@ class DebateTurnIntegrationTest extends DebateTestSupport {
 
         List<Sse> last = nextTurn(member, id);
         assertThat(names(last)).containsExactly("delta", "turn");
-        assertThat(last.get(1).data().get("order").asInt()).isEqualTo(12);
+        assertThat(last.get(1).data().get("order").asInt()).isEqualTo(LIMIT);
 
         JsonNode after = debateJson(member, id);
         assertThat(after.at("/data/status").asText()).isEqualTo("ENDED");
         assertThat(after.at("/data/summary").asText()).isEqualTo("쟁점 요약");
-        assertThat(after.at("/data/turnCount").asInt()).isEqualTo(12);
+        assertThat(after.at("/data/turnCount").asInt()).isEqualTo(LIMIT);
         assertThat(after.at("/data/remainingTurns").asInt()).isZero();
 
         turnRequest(member, id).andExpect(status().isConflict())
@@ -168,7 +171,7 @@ class DebateTurnIntegrationTest extends DebateTestSupport {
                 .andExpect(jsonPath("$.error.code").value("DEBATE_ENDED"));
         endDebate(member, id).andExpect(status().isConflict())
                 .andExpect(jsonPath("$.error.code").value("DEBATE_ENDED"));
-        assertThat(storedTurnCount(id)).isEqualTo(12);
+        assertThat(storedTurnCount(id)).isEqualTo(LIMIT);
     }
 
     @Test
@@ -177,17 +180,17 @@ class DebateTurnIntegrationTest extends DebateTestSupport {
         String id = newDebate(member, persona(), persona());
         stubSummary("사용자 마지막 요약");
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < LIMIT - 1; i++) {
             postMessage(member, id, "메시지 " + i).andExpect(status().isCreated());
         }
         postMessage(member, id, "마지막 메시지")
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.data.order").value(12));
+                .andExpect(jsonPath("$.data.order").value(LIMIT));
 
         JsonNode after = debateJson(member, id);
         assertThat(after.at("/data/status").asText()).isEqualTo("ENDED");
         assertThat(after.at("/data/summary").asText()).isEqualTo("사용자 마지막 요약");
-        assertThat(after.at("/data/turnCount").asInt()).isEqualTo(12);
+        assertThat(after.at("/data/turnCount").asInt()).isEqualTo(LIMIT);
 
         postMessage(member, id, "더 할 말").andExpect(status().isConflict())
                 .andExpect(jsonPath("$.error.code").value("DEBATE_ENDED"));
@@ -200,7 +203,7 @@ class DebateTurnIntegrationTest extends DebateTestSupport {
         stubStream("발언");
         doThrow(new ApiException(ErrorCode.AI_FAILED)).when(aiClient).complete(anyList(), anyBoolean());
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < LIMIT - 1; i++) {
             nextTurn(member, id);
         }
         List<Sse> last = nextTurn(member, id);
@@ -209,7 +212,7 @@ class DebateTurnIntegrationTest extends DebateTestSupport {
 
         JsonNode stuck = debateJson(member, id);
         assertThat(stuck.at("/data/status").asText()).isEqualTo("ACTIVE");
-        assertThat(stuck.at("/data/turnCount").asInt()).isEqualTo(12);
+        assertThat(stuck.at("/data/turnCount").asInt()).isEqualTo(LIMIT);
         assertThat(stuck.at("/data/summary").isNull()).isTrue();
 
         turnRequest(member, id).andExpect(status().isConflict())
@@ -230,14 +233,14 @@ class DebateTurnIntegrationTest extends DebateTestSupport {
         String id = newDebate(member, persona(), persona());
         doThrow(new ApiException(ErrorCode.AI_FAILED)).when(aiClient).complete(anyList(), anyBoolean());
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < LIMIT - 1; i++) {
             postMessage(member, id, "메시지 " + i).andExpect(status().isCreated());
         }
         postMessage(member, id, "열두 번째").andExpect(status().isCreated());
 
         JsonNode stuck = debateJson(member, id);
         assertThat(stuck.at("/data/status").asText()).isEqualTo("ACTIVE");
-        assertThat(stuck.at("/data/turnCount").asInt()).isEqualTo(12);
+        assertThat(stuck.at("/data/turnCount").asInt()).isEqualTo(LIMIT);
     }
 
     @Test

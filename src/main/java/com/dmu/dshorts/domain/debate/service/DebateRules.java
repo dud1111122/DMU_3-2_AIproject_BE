@@ -9,10 +9,8 @@ import org.springframework.http.HttpStatus;
 /** Limits and shared conflict errors of the debate feature. */
 public final class DebateRules {
 
-    /** New debates per member per KST day. */
-    public static final int DAILY_LIMIT = 3;
-    /** AI and user turns combined; reaching this ends the debate. */
-    public static final int TURN_LIMIT = 12;
+    /** AI and user turns combined; reaching this ends the debate. Keep in sync with the debate_turns CHECKs. */
+    public static final int TURN_LIMIT = 30;
     /** Max characters of one turn (AI or user), after trim. */
     public static final int TURN_MAX_CHARS = 300;
     public static final int TOPIC_MAX_CHARS = 200;

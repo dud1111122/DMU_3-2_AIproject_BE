@@ -16,12 +16,10 @@ import com.dmu.dshorts.global.common.Cursors;
 import com.dmu.dshorts.global.common.Ids;
 import com.dmu.dshorts.global.common.PageResponse;
 import com.dmu.dshorts.global.error.ApiException;
-import com.dmu.dshorts.global.error.ErrorCode;
 import com.dmu.dshorts.global.visibility.VisibilityService;
 import java.time.Instant;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -37,9 +35,8 @@ import org.springframework.transaction.support.TransactionTemplate;
  * Debate creation, detail and list. Creating a debate only stores the pair and topic (no AI call).
  * Turns, messages and the end action live in {@link DebateConversationService}.
  *
- * <p>Daily quota: at most {@link DebateRules#DAILY_LIMIT} debates created per member per KST day, counted by
- * {@code created_at}. A failed create stores nothing and does not count. Per-user in-process lock keeps the
- * count and insert consistent (single backend process assumption).
+ * <p>No daily quota. A per-user in-process lock rejects a second create from the same member while one is
+ * running (duplicate-click guard, single backend process assumption).
  */
 @Service
 public class DebateService {
@@ -77,9 +74,6 @@ public class DebateService {
         try {
             Debate saved = writeTx.execute(status -> {
                 Instant now = clock.now();
-                if (countCreatedOn(userId, now) >= DebateRules.DAILY_LIMIT) {
-                    throw limitExceeded(now);
-                }
                 Debate debate = new Debate(userId, first.getId(), second.getId(), input.topic());
                 debate.setCreatedAt(now);
                 debate.setUpdatedAt(now);
@@ -96,7 +90,7 @@ public class DebateService {
         return readTx.execute(status -> detail(findOwnedVisible(userId, debateId)));
     }
 
-    /** {@code GET /users/me/debates}: own visible debates, newest first, plus today's quota. */
+    /** {@code GET /users/me/debates}: own visible debates, newest first. */
     public DebateListResponse list(Long userId, String cursorParam, Integer limitParam) {
         int limit = Cursors.limit(limitParam);
         Cursors.TimeIdCursor cursor = Cursors.decodeTimeId(cursorParam);
@@ -116,10 +110,7 @@ public class DebateService {
                     d -> new DebateListItem(Ids.str(d.getId()), d.getStatus().name(), d.getTopic(),
                             summaries(personas, d.getPersonaAId(), d.getPersonaBId()),
                             d.getTurnCount(), d.getCreatedAt()));
-            Instant now = clock.now();
-            int used = (int) Math.min(countCreatedOn(userId, now), Integer.MAX_VALUE);
-            return new DebateListResponse(slice.items(), slice.nextCursor(), DebateRules.DAILY_LIMIT, used,
-                    remaining(used), DebateClock.dayEnd(now));
+            return new DebateListResponse(slice.items(), slice.nextCursor());
         });
     }
 
@@ -161,20 +152,4 @@ public class DebateService {
         return List.of(PersonaSummary.from(personas.get(personaAId)), PersonaSummary.from(personas.get(personaBId)));
     }
 
-    private long countCreatedOn(Long userId, Instant at) {
-        return debateRepository.countByUserIdAndCreatedAtGreaterThanEqualAndCreatedAtLessThan(
-                userId, DebateClock.dayStart(at), DebateClock.dayEnd(at));
-    }
-
-    private static int remaining(long used) {
-        return (int) Math.max(0, DebateRules.DAILY_LIMIT - used);
-    }
-
-    private static ApiException limitExceeded(Instant at) {
-        Map<String, Object> details = new LinkedHashMap<>();
-        details.put("remainingToday", 0);
-        details.put("resetAt", DebateClock.dayEnd(at));
-        return new ApiException(ErrorCode.DAILY_LIMIT_EXCEEDED, "오늘 새 대담은 하루 3회까지 만들 수 있습니다.")
-                .withDetails(details);
-    }
 }

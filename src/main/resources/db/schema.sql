@@ -262,7 +262,7 @@ CREATE TABLE debates (
   persona_b_id bigint NOT NULL REFERENCES personas(id),
   topic varchar(200) NOT NULL,
   status text NOT NULL DEFAULT 'ACTIVE' CHECK (status IN ('ACTIVE','ENDED')),
-  turn_count smallint NOT NULL DEFAULT 0 CHECK (turn_count BETWEEN 0 AND 12),
+  turn_count smallint NOT NULL DEFAULT 0 CHECK (turn_count BETWEEN 0 AND 30),
   summary text,
   ai_model varchar(100),
   created_at timestamptz DEFAULT now(),
@@ -275,7 +275,7 @@ CREATE INDEX ix_debates_user ON debates(user_id, created_at DESC, id DESC);
 CREATE TABLE debate_turns (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   debate_id bigint NOT NULL REFERENCES debates(id),
-  turn_order smallint NOT NULL CHECK (turn_order BETWEEN 1 AND 12),
+  turn_order smallint NOT NULL CHECK (turn_order BETWEEN 1 AND 30),
   speaker_type text NOT NULL CHECK (speaker_type IN ('PERSONA','USER')),
   speaker_persona_id bigint REFERENCES personas(id),
   body varchar(300) NOT NULL CHECK (length(body) BETWEEN 1 AND 300),

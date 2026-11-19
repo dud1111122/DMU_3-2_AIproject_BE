@@ -41,8 +41,8 @@ class DebateIntegrationTest extends DebateTestSupport {
                 .andExpect(jsonPath("$.data.topic").value("Where  does   MORALITY come from?"))
                 .andExpect(jsonPath("$.data.turns.length()").value(0))
                 .andExpect(jsonPath("$.data.turnCount").value(0))
-                .andExpect(jsonPath("$.data.turnLimit").value(12))
-                .andExpect(jsonPath("$.data.remainingTurns").value(12))
+                .andExpect(jsonPath("$.data.turnLimit").value(30))
+                .andExpect(jsonPath("$.data.remainingTurns").value(30))
                 .andExpect(jsonPath("$.data.summary").doesNotExist())
                 .andExpect(jsonPath("$.data.endedAt").doesNotExist())
                 .andExpect(jsonPath("$.data.personas.length()").value(2))
@@ -69,47 +69,26 @@ class DebateIntegrationTest extends DebateTestSupport {
                 .andExpect(jsonPath("$.data.items.length()").value(2))
                 .andExpect(jsonPath("$.data.items[0].status").value("ACTIVE"))
                 .andExpect(jsonPath("$.data.items[0].turnCount").value(0))
-                .andExpect(jsonPath("$.data.items[0].createdAt").exists())
-                .andExpect(jsonPath("$.data.dailyLimit").value(3))
-                .andExpect(jsonPath("$.data.usedToday").value(2))
-                .andExpect(jsonPath("$.data.remainingToday").value(1))
-                .andExpect(jsonPath("$.data.resetAt").value("2026-11-17T15:00:00Z"));
+                .andExpect(jsonPath("$.data.items[0].createdAt").exists());
     }
 
     @Test
-    void fourthCreateOnSameKstDayIs429AndResetsAtKstMidnight() throws Exception {
+    void createHasNoDailyLimit() throws Exception {
         MockHttpSession member = newMember();
         Persona a = persona();
         Persona b = persona();
         now.set(Instant.parse("2026-11-17T14:59:00Z")); // 23:59 KST
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 5; i++) {
             createDebate(member, a.getId(), b.getId(), "논제 " + i).andExpect(status().isCreated());
         }
-        createDebate(member, a.getId(), b.getId(), "논제 4")
-                .andExpect(status().isTooManyRequests())
-                .andExpect(jsonPath("$.error.code").value("DAILY_LIMIT_EXCEEDED"))
-                .andExpect(jsonPath("$.error.details.remainingToday").value(0))
-                .andExpect(jsonPath("$.error.details.resetAt").value("2026-11-17T15:00:00Z"));
-
         mockMvc.perform(get("/api/v1/users/me/debates").param("limit", "2").session(member))
                 .andExpect(jsonPath("$.data.items.length()").value(2))
-                .andExpect(jsonPath("$.data.nextCursor").isNotEmpty())
-                .andExpect(jsonPath("$.data.usedToday").value(3))
-                .andExpect(jsonPath("$.data.remainingToday").value(0))
-                .andExpect(jsonPath("$.data.resetAt").value("2026-11-17T15:00:00Z"));
-
-        // next KST day: quota is back
-        now.set(Instant.parse("2026-11-17T15:00:00Z"));
-        createDebate(member, a.getId(), b.getId(), "논제 4")
-                .andExpect(status().isCreated());
-        mockMvc.perform(get("/api/v1/users/me/debates").session(member))
-                .andExpect(jsonPath("$.data.usedToday").value(1))
-                .andExpect(jsonPath("$.data.remainingToday").value(2));
+                .andExpect(jsonPath("$.data.nextCursor").isNotEmpty());
     }
 
     @Test
-    void failedCreatesDoNotCountTowardTheDailyLimit() throws Exception {
+    void failedCreatesDoNotBlockLaterCreates() throws Exception {
         MockHttpSession member = newMember();
         Persona a = persona();
         Persona inactive = persona();
@@ -121,10 +100,9 @@ class DebateIntegrationTest extends DebateTestSupport {
         createDebate(member, a.getId(), 999_999_999L, "없음").andExpect(status().isNotFound());
         createDebate(member, a.getId(), 1L, "   ").andExpect(status().isBadRequest());
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 4; i++) {
             createDebate(member, a.getId(), persona().getId(), "정상 " + i).andExpect(status().isCreated());
         }
-        createDebate(member, a.getId(), persona().getId(), "넘침").andExpect(status().isTooManyRequests());
     }
 
     @Test
@@ -190,7 +168,7 @@ class DebateIntegrationTest extends DebateTestSupport {
     }
 
     @Test
-    void hiddenPersonaHidesDebateEverywhereButQuotaStillCounts() throws Exception {
+    void hiddenPersonaHidesDebateEverywhere() throws Exception {
         MockHttpSession member = newMember();
         Persona a = persona();
         Persona b = persona();
@@ -205,9 +183,7 @@ class DebateIntegrationTest extends DebateTestSupport {
         turnRequest(member, id).andExpect(status().isNotFound());
         endDebate(member, id).andExpect(status().isNotFound());
         mockMvc.perform(get("/api/v1/users/me/debates").session(member))
-                .andExpect(jsonPath("$.data.items.length()").value(0))
-                .andExpect(jsonPath("$.data.usedToday").value(1))
-                .andExpect(jsonPath("$.data.remainingToday").value(2));
+                .andExpect(jsonPath("$.data.items.length()").value(0));
 
         b.setActive(true);
         personaRepository.save(b);
@@ -262,7 +238,7 @@ class DebateIntegrationTest extends DebateTestSupport {
         JsonNode ended = debateJson(member, id);
         assertThat(ended.at("/data/status").asText()).isEqualTo("ENDED");
         assertThat(ended.at("/data/summary").asText()).isEqualTo("두 사람의 쟁점 요약");
-        assertThat(ended.at("/data/remainingTurns").asInt()).isEqualTo(11);
+        assertThat(ended.at("/data/remainingTurns").asInt()).isEqualTo(29);
         mockMvc.perform(get("/api/v1/users/me/debates").session(member))
                 .andExpect(jsonPath("$.data.items[0].status").value("ENDED"))
                 .andExpect(jsonPath("$.data.items[0].turnCount").value(1));
