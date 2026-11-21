@@ -20,6 +20,7 @@ public record PostCard(
         Instant publishedAt,
         List<TopicSummary> topics,
         List<SectionResponse> sections,
+        int estimatedReadSeconds,
         long likeCount,
         UserState userState) {
 }

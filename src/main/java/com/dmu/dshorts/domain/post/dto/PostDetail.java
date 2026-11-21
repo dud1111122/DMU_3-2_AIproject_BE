@@ -19,6 +19,7 @@ public record PostDetail(
         List<SectionResponse> sections,
         List<KeyPointResponse> keyPoints,
         List<SourceResponse> sources,
+        int estimatedReadSeconds,
         long likeCount,
         UserState userState) {
 }

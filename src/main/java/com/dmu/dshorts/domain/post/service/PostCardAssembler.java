@@ -37,6 +37,7 @@ import java.util.Set;
 @Transactional(readOnly = true)
 public class PostCardAssembler {
 
+    private final com.dmu.dshorts.domain.usage.ReadingTime readingTime;
     private final TopicService topicService;
     private final PostSectionRepository sectionRepository;
     private final KeyPointRepository keyPointRepository;
@@ -48,7 +49,8 @@ public class PostCardAssembler {
     public PostCardAssembler(TopicService topicService, PostSectionRepository sectionRepository,
                              KeyPointRepository keyPointRepository, PostSourceRepository sourceRepository,
                              PostLikeRepository likeRepository, SavedPostRepository savedPostRepository,
-                             FollowRepository followRepository) {
+                             FollowRepository followRepository, com.dmu.dshorts.domain.usage.ReadingTime readingTime) {
+        this.readingTime = readingTime;
         this.topicService = topicService;
         this.sectionRepository = sectionRepository;
         this.keyPointRepository = keyPointRepository;
@@ -82,7 +84,7 @@ public class PostCardAssembler {
                 .toList();
         return new PostDetail(card.id(), card.persona(), card.title(), card.summary(), card.caption(),
                 card.groundingMode(), card.publishedAt(), card.topics(), card.sections(), keyPoints, sources,
-                card.likeCount(), card.userState());
+                card.estimatedReadSeconds(), card.likeCount(), card.userState());
     }
 
     private PostCard toCard(Post post, Context context) {
@@ -102,6 +104,7 @@ public class PostCardAssembler {
                 post.getPublishedAt(),
                 context.topics.getOrDefault(postId, List.of()),
                 context.sections.getOrDefault(postId, List.of()),
+                readingTime.seconds(context.sections.getOrDefault(postId, List.of())),
                 context.likeCounts.getOrDefault(postId, 0L),
                 userState);
     }
