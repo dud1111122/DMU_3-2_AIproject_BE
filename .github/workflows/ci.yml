@@ -16,7 +16,11 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: '21' }
       - uses: gradle/actions/setup-gradle@v4
+      - run: docker version
       - run: ./gradlew test --no-daemon
+        env:
+          # Testcontainers managed by Spring Boot uses an older Docker API by default.
+          JAVA_TOOL_OPTIONS: -Dapi.version=1.44
 
   image:
     if: github.event_name == 'push'
