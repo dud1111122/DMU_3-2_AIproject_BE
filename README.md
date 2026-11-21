@@ -50,10 +50,29 @@ scripts/reset-db.sh dshorts_dev   # DB 재생성 + schema.sql 적용
 ```
 
 - 최초 기동 시 `ADMIN_*`/`DEMO_*` 환경 변수로 계정 2개를, 주제 테이블이 비어 있으면 `seed/*.json`으로 주제 8개·페르소나 10명·예시 게시물 3개를 넣는다.
+- 이전 6턴 토론 스키마에서 `missing column [id] in table [debate_turns]` 오류가 발생하면 DB를 백업하고 대상 접속 정보를 확인한 뒤 `psql -v ON_ERROR_STOP=1 -f src/main/resources/db/migrations/legacy-debates-to-current.sql`을 한 번 실행한다. 접속 정보는 `psql` 옵션 또는 PostgreSQL 환경 변수로 지정한다. 원본 두 테이블은 `legacy_debates_20261117` 스키마에 보존된다. 이전 스키마에 없던 생성 시각은 완료 시각(없으면 이관 시각)을 사용하고, 턴의 AI 모델은 해당 토론의 모델을 사용한다. 이 스크립트는 자동 실행되지 않으며 이미 이관된 DB에서는 중단된다.
 - 인증은 세션 쿠키 + CSRF(`X-XSRF-TOKEN` 헤더)다. 자세한 규칙은 [docs/BACKEND_FOUNDATION.md](docs/BACKEND_FOUNDATION.md)를 본다.
 - Swagger UI: `http://localhost:8080/swagger-ui/index.html`, 헬스체크: `http://localhost:8080/api/v1/health`
 - 테스트: `./gradlew build` (Testcontainers로 별도 PostgreSQL을 띄우므로 Docker 실행 필요)
 
 ## 구현된 API 범위
 
-현재는 공통 기반만 있다: 로그인/로그아웃/CSRF, `GET·PATCH /users/me`, 헬스체크, 25개 테이블 엔티티, 시드. 나머지 엔드포인트는 `기획/BE_Endpoint.md` 계약에 맞춰 구현 중이다.
+로그인·프로필, 공개 피드·검색·페르소나, 팔로우·좋아요·저장, 퀴즈·복습·게시물 학습 대화, 실시간 대담, 관리자·신고·사전 준비와 함께 사용량·독서 팁 API를 제공한다. API 계약은 `기획/BE_Endpoint.md`, 실제 경로는 Swagger UI에서 확인할 수 있다.
+
+### 묶음 사용량과 독서 팁
+
+기존 DB에는 데이터를 지우지 않고 다음 추가 마이그레이션을 한 번 적용한다. PostgreSQL 접속 정보는 `psql` 옵션 또는 `PGHOST`·`PGPORT`·`PGDATABASE`·`PGUSER`·`PGPASSWORD` 환경 변수로 지정한다.
+
+```bash
+psql -v ON_ERROR_STOP=1 -f src/main/resources/db/migrations/add-usage-and-reading-books.sql
+```
+
+새 DB는 최신 `db/schema.sql`에 두 테이블이 포함된다. 기존 행은 변경하지 않으며 마이그레이션 재실행도 가능하다.
+
+- `GET /api/v1/usage/today`: 회원의 KST 오늘·월요일부터 이번 주·이번 달 집계와 오늘 약속.
+- `PUT /api/v1/usage/today/pledge`: 1~100개 약속을 하루 한 번 저장한다. 중복은 `409 PLEDGE_ALREADY_SET`.
+- `POST /api/v1/usage/bundles`: 공개 게시물 ID 1~10개를 검증하고 개수·예상 시간을 집계한다. 비회원은 저장 없이 결과만 받는다. 같은 날짜의 변경은 행 잠금으로 처리한다.
+- `POST /api/v1/usage/stops`: 회원의 오늘 멈춘 횟수를 더한다.
+- `/api/v1/admin/reading-books`: 관리자 도서 등록·목록·부분 수정·논리 삭제. `PATCH /{id}`에서 `personaId:null`은 연결을 해제한다.
+
+`READING_CHARS_PER_MINUTE`(기본 500, 양의 정수)로 카드 본문 기준 예상 읽기 시간을 조정한다. 피드·상세의 `estimatedReadSeconds`를 게시물별 올림한 뒤 묶음에서 합산한다. 실제 체류 시간과 본 게시물 ID는 저장하지 않는다. 독서 팁은 연결된 페르소나의 미삭제 도서를 우선하고, 없으면 일반 도서를 사용하며, 회원에게 하루 첫 묶음에서만 반환한다. 등록 도서가 없으면 `tip:null`이다. 프런트엔드에서 회원 주간 시간 또는 비회원 로컬 집계로 책의 정독 시간과 비교해 문구를 표시한다.
