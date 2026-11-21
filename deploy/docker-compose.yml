@@ -1,0 +1,43 @@
+name: dshorts-prod
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dshorts
+      POSTGRES_USER: dshorts
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U dshorts -d dshorts"]
+      interval: 5s
+      retries: 10
+
+  backend:
+    image: ghcr.io/dud1111122/dshorts-backend:${BACKEND_TAG:-latest}
+    restart: unless-stopped
+    depends_on: { postgres: { condition: service_healthy } }
+    env_file: .env
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/dshorts
+      DB_USERNAME: dshorts
+      MEDIA_DIR: /app/media
+      SESSION_COOKIE_SECURE: "true"
+      SERVER_FORWARD_HEADERS_STRATEGY: framework
+    volumes:
+      - ./media:/app/media
+
+  frontend:
+    image: ghcr.io/dud1111122/dshorts-frontend:${FRONTEND_TAG:-latest}
+    restart: unless-stopped
+    depends_on: [backend]
+    ports: ["127.0.0.1:18080:80"]
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, "http://127.0.0.1/api/v1/health"]
+      interval: 5s
+      timeout: 4s
+      retries: 12
+      start_period: 20s
+
+volumes:
+  pgdata:
