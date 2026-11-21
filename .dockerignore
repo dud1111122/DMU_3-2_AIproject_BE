@@ -1,0 +1,11 @@
+.git
+.git-rewrite
+.github
+.claude
+.idea
+.local
+.gradle
+build
+media
+.env*
+deploy

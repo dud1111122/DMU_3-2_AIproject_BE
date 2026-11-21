@@ -1,0 +1,7 @@
+[Unit]
+Description=Update De-Shorts containers
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/deshorts-deploy
+ExecStart=/bin/sh %h/deshorts-deploy/update.sh
